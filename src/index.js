@@ -3,8 +3,7 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import * as serviceWorker from "./serviceWorker";
 import Admin from "./layouts/Admin";
-import MasterRouter from "./Router";
-import HomePage from "./layouts/Home;
+import HomePage from "./layouts/Home";
 /* ------------- React router ------------ */
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 /* ---------------- style ---------------- */

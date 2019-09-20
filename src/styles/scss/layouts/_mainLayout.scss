@@ -1,0 +1,44 @@
+.adminLayout {
+  &__wrapper {
+    display: flex;
+    align-items: stretch;
+  }
+  &__sidebar {
+    padding: 3rem 0;
+    min-width: 250px;
+    max-width: 250px;
+    min-height: 100vh;
+    background: linear-gradient(to bottom, rgb(9, 80, 138), cyan);
+    &__header {
+      min-height: 5vh;
+      border-bottom: solid 1px #fafafa;
+      padding: 1rem;
+      margin: 0 1rem 1rem 1rem;
+    }
+    &__link {
+      text-transform: uppercase;
+      padding: 1.2rem 0 1.2rem 1rem;
+      list-style: none;
+      transition: all linear 0.2s;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      // justify-content: center;
+      &:hover {
+        background-color: rgb(28, 143, 179);
+        color: white;
+        transition: all linear 0.2s;
+      }
+    }
+    &__active {
+      background-color: rgb(28, 143, 179);
+      color: white;
+    }
+    &__icon {
+      padding-right: 3rem;
+    }
+  }
+  &__page {
+    width: 100%;
+  }
+}

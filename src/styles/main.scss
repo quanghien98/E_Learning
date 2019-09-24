@@ -1,8 +1,14 @@
+/* ---------------- utils ---------------- */
+@import "./scss/base/reset";
+@import "./scss/helpers/variables";
+@import "./scss/helpers/mixins";
+
 /* --------------- layouts --------------- */
-// admin layout
+// Home layout
+
+// Admin layout
 @import "./scss/components/admin/sideBar";
 @import "./scss/components/admin/dashboard";
 @import "./scss/components/admin/courseManagement";
 @import "./scss/components/admin/userManagement";
 @import "./scss/layouts/mainLayout";
-

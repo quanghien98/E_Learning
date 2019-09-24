@@ -4,8 +4,9 @@ import Navbar from './../components/layouts/Navbar';
 import Carousel from "../components/layouts/Carousel";
 import CourseList from "../components/layouts/CourseList";
 import Categories from "../components/layouts/Categories";
-import Comment from "../components/layouts/Comment";
+import Comment from "../components/layouts/Comments";
 import Footer from "../components/layouts/Footer";
+
 const Home = props => {
   return (
     
@@ -16,7 +17,6 @@ const Home = props => {
       <Categories/>
       <Comment/>
       <Footer/>
-
     </div>
   );
 };

@@ -12,6 +12,22 @@
   #{$prop}: #{$value};
 }
 
+/* --------- placeholder prefixes -------- */
+@mixin placeholder-modifier() {
+  @content;
+  -webkit-input-placeholder {
+    @content;
+  }
+  -moz-placeholder {
+    @content;
+  }
+  -ms-input-placeholder {
+    @content;
+  }
+  -moz-placeholder {
+    @content;
+  }
+}
 /* ---------- vertical centering --------- */
 
 // no argument taken
@@ -133,4 +149,14 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+/* ---------- overlay background --------- */
+@mixin overlay-bg($opacity) {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, $opacity);
 }

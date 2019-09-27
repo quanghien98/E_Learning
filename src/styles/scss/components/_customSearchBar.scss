@@ -1,0 +1,36 @@
+.customSearchBar {
+  &__input {
+    border: 1px solid $color-primary;
+    border-radius: $radius-sm 0 0 $radius-sm !important;
+    &:focus {
+      border-color: $color-primary;
+      box-shadow: none;
+    }
+    @include placeholder-modifier() {
+      font-weight: $font-weight-thin;
+    }
+    @include text-shorten();
+  }
+  &__btn {
+    border: none;
+    color: $color-secondary;
+    background-color: $color-primary;
+    border-radius: 0 $radius-sm $radius-sm 0 !important;
+    &:hover {
+      color: $color-text-white;
+      background-color: $color-secondary;
+      border-color: $color-secondary;
+    }
+    &:focus {
+      border-color: $color-primary;
+      box-shadow: none;
+    }
+  }
+  @include breakpoint(phone) {
+    &__input {
+      @include placeholder-modifier() {
+        font-size: $font-size-xs !important;
+      }
+    }
+  }
+}

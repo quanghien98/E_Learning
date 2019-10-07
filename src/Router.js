@@ -8,7 +8,10 @@ import Navbar from "./components/layouts/Navbar";
 import Category from "./components/Category";
 import CourseItem from "./components/CourseItem";
 
+
+
 export default class MasterRouter extends Component {
+
   render() {
     return (
       <Router>
@@ -23,3 +26,8 @@ export default class MasterRouter extends Component {
     );
   }
 }
+
+
+
+
+

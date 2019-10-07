@@ -1,5 +1,19 @@
-body {
+body,
+html {
   margin: 0 auto;
   font-family: "Open Sans", Roboto, sans-serif;
   font-size: $font-size-sm;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin: 0;
+  }
+  .container {
+    max-width: 1400px;
+    padding: 0 20px;
+    
+  }
 }

@@ -1,0 +1,103 @@
+.heroImage {
+  position: relative;
+  // background-image: url(../../../../../images/compressed/adult-coder-coding-1181676-min.jpg);
+  // background-position: center;
+  // background-size: cover;
+
+  max-height: 500px;
+  height: 500px;
+  img {
+    position: relative;
+    object-fit: cover;
+    object-position: center;
+    width: 100%;
+    height: inherit;
+    &.heroImage__fadeIn {
+      animation: fade-in 0.5s ease-in !important;
+    }
+    @keyframes fade-in {
+      from {
+        opacity: 0;
+        visibility: hidden;
+      }
+      to {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+  }
+  transition: all linear 0.2s;
+  &__overlayBg {
+    @include overlay-bg(0.4);
+  }
+  &__overlayTitle {
+    @include abs-position(0, 0, 0, 0);
+    height: inherit;
+    h1,
+    h5 {
+      color: $color-text-white;
+      font-weight: $font-weight-regular;
+      text-shadow: 2px 1px 2px rgba(0, 0, 0, 0.5);
+      line-height: 1.5;
+    }
+    h1 {
+      font-size: $font-size-4xl;
+    }
+
+    &__searchBar {
+      width: calc(33% + 200px);
+      padding: $padding-2 0;
+    }
+  }
+  @include breakpoint(tablet) {
+    &__overlayTitle {
+      align-items: center;
+      h1 {
+        font-size: $font-size-2xl;
+      }
+      h5 {
+        display: none;
+      }
+      &__searchBar {
+        width: 80%;
+      }
+    }
+  }
+
+  @include breakpoint(phone) {
+    max-height: 300px;
+    height: 300px;
+    &__overlayTitle {
+      transform: translatey(18%);
+
+      h1 {
+        text-align: center;
+        font-size: $font-size-2xl;
+      }
+      h5 {
+        display: none;
+      }
+      &__searchBar {
+        width: 100%;
+      }
+    }
+  }
+}
+@include breakpoint(xsphone) {
+  .heroImage {
+    &__overlayTitle {
+      transform: translatey(20%);
+
+      h1 {
+        text-align: center;
+        font-size: $font-size-xl;
+      }
+      h5 {
+        display: none;
+      }
+      &__searchBar {
+        width: 100%;
+      }
+    }
+  }
+}

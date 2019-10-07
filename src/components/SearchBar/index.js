@@ -1,9 +1,10 @@
 import React, { Component } from "react";
+import { withRouter } from "react-router-dom";
 import _ from "lodash";
 import { InputGroup, Input, InputGroupAddon, Button } from "reactstrap";
 import Icon from "@material-ui/core/Icon";
 
-export default class SearchBar extends Component {
+class SearchBar extends Component {
   constructor(props) {
     super(props);
 
@@ -14,39 +15,48 @@ export default class SearchBar extends Component {
 
   handleSearchFieldChange = e => {
     [e.target.name] = e.target.value;
-    console.log(e.target.value);
     this.setState({
       searchField: e.target.value
     });
   };
 
-  handleSearchFieldChangeOnPressingEnter = e => {
+  handleSearchOnKeyDown = e => {
     [e.target.name] = e.target.value;
-    if ((_.isEmpty(e.target.value) && e.key === "Enter") || e.keyCode === 13) {
-      alert(e.target.value);
+    if (e.key === "Enter" || e.keyCode === 13) {
+      this.handleSearchOnSubmit();
     }
-    console.log("err");
-    
   };
 
-  handleSearchFieldChangeOnClick = e => {
-    alert(this.state.searchField);
+  handleSearchOnSubmit = () => {
+    const queryPath = `/courses/search/${this.state.searchField}`;
+    this.state.searchField.length === 0
+      ? this.props.history.push("/")
+      : this.props.history.push(queryPath);
+  };
+
+  getSearchQuery = () => {
+    const url = this.props.history.location.pathname;
+    const query = _.last(url.split("/"));
+    return query;
   };
 
   render() {
+    const { searchBarSize, searchPlaceholder } = this.props;
+    const query = this.getSearchQuery();
     return (
-      <InputGroup size="lg" className="customSearchBar">
+      <InputGroup size={searchBarSize} className="customSearchBar">
         <Input
+          type="search"
           className="customSearchBar__input"
           name="searchField"
-          placeholder="Search for your favorite tech courses"
+          placeholder={searchPlaceholder}
           onChange={this.handleSearchFieldChange}
-          onKeyDown={this.handleSearchFieldChangeOnPressingEnter}
+          onKeyDown={this.handleSearchOnKeyDown}
         />
         <InputGroupAddon addonType="append">
           <Button
-            className="customSearchBar__btn d-flex align-items-center"
-            onClick={this.handleSearchFieldChangeOnClick}
+            className="btn customSearchBar__btn d-flex align-items-center"
+            onClick={this.handleSearchOnSubmit}
           >
             <Icon>search</Icon>
           </Button>
@@ -55,3 +65,5 @@ export default class SearchBar extends Component {
     );
   }
 }
+
+export default withRouter(SearchBar);

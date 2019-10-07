@@ -16,14 +16,20 @@
     color: $color-secondary;
     background-color: $color-primary;
     border-radius: 0 $radius-sm $radius-sm 0 !important;
+    transition: none;
     &:hover {
       color: $color-text-white;
-      background-color: $color-secondary;
-      border-color: $color-secondary;
+      background-color: $color-secondary !important;
+      border: $border-1px solid $color-secondary !important;
+      transition: none;
+    }
+    &:active {
+      border-color: $color-primary;
+      background-color: $color-secondary !important;
+      border-color: $color-secondary !important;
     }
     &:focus {
-      border-color: $color-primary;
-      box-shadow: none;
+      box-shadow: none !important;
     }
   }
   @include breakpoint(phone) {

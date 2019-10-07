@@ -1,8 +1,12 @@
 /* ---------------- utils ---------------- */
 @import "./scss/helpers/variables";
-@import "./scss/base/reset";
 @import "./scss/helpers/mixins";
+@import "./scss/base/reset";
 
 /* --------------- layouts --------------- */
 // Home layout
 @import "./scss/layouts/home/drafts/draftNavBar";
+@import "./scss/layouts/home/drafts/draftHeroImage";
+
+/* -------------- components ------------- */
+@import "./scss/components/customSearchBar";

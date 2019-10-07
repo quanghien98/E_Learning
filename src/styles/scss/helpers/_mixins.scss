@@ -112,7 +112,15 @@
       @content;
     }
   } @else if $point == tablet {
-    @media only screen and (min-width: 600px) {
+    @media only screen and (max-width: 600px) {
+      @content;
+    }
+  } @else if $point == phone {
+    @media only screen and (max-width: 415px) {
+      @content;
+    }
+  } @else if $point == xsphone {
+    @media only screen and (max-width: 321px) {
       @content;
     }
   }

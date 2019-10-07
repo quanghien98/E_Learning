@@ -1,0 +1,140 @@
+/* --------------------------------------- */
+/*                  Credit                 */
+/* --------------------------------------- */
+// Some of the following varaibles are adopted from 
+// The United States Web Design System
+// at https://designsystem.digital.gov
+
+
+
+/* ------------- color pallet ------------ */
+
+// primary
+$color-primary:                #ffffff;
+$color-primary-dark:           #f2f3f5;
+$color-primary-darker:         #cccccc;
+
+// secondary
+$color-secondary:              #ec5252;
+$color-secondary-light:        #ff857e;
+$color-secondary-dark:         #b31729;
+
+// text
+$color-text-black:               #000;
+$color-text-white:               #fff;
+
+// NOTE: the following variables are adapted 
+// from United States Web Design System
+// at https://designsystem.digital.gov
+/* ---------- margins & paddings --------- */
+
+//margins
+$margin-0:                         0px;
+$margin-1px:                       1px;
+$margin-2px:                       2px;
+$margin-05:                        4px;
+$margin-1:                         8px;
+$margin-105:                      12px;
+$margin-2:                        16px;
+$margin-205:                      20px;
+$margin-3:                        24px;
+$margin-4:                        32px;
+$margin-5:                        40px;
+$margin-6:                        48px;
+$margin-7:                        56px;
+$margin-8:                        64px;
+$margin-9:                        72px;
+
+//paddings
+$padding-0:                        0px;
+$padding-1px:                      1px;
+$padding-2px:                      2px;
+$padding-05:                       4px;
+$padding-1:                        8px;
+$padding-105:                     12px;
+$padding-2:                       16px;
+$padding-205:                     20px;
+$padding-3:                       24px;
+$padding-4:                       32px;
+$padding-5:                       40px;
+$padding-6:                       48px;
+$padding-7:                       56px;
+$padding-8:                       64px;
+$padding-9:                       72px;
+
+/* ---------- borders & outlines --------- */
+// borders
+$border-0:                           0;
+$border-1px:                       1px;
+$border-2px:                       2px;
+$border-05:                        4px;
+$border-1:                         8px;
+$border-105:                      12px;
+$border-2:                        16px;
+$border-205:                      20px;
+$border-3:                        24px;
+
+// border radius
+
+$radius-0:                           0;
+$radius-sm:                        2px;
+$radius-md:                        4px;
+$radius-lg:                        8px;
+$radius-pill:                     99rem;
+$radius-top-0:                       0;
+$radius-top-sm:                    2px;
+$radius-top-md:                    4px;
+$radius-top-lg:                    8px;
+$radius-top-pill:                 99rem;
+$radius-bottom-0:                    0;
+$radius-bottom-sm:                 2px;
+$radius-bottom-md:                 4px;
+$radius-bottom-lg:                 8px;
+$radius-bottom-pill:              99rem;
+$radius-left-0:                      0;
+$radius-left-sm:                   2px;
+$radius-left-md:                   4px;
+$radius-left-lg:                   8px;
+$radius-left-pill:                99rem;
+$radius-right-0:                     0;
+$radius-right-sm:                  2px;
+$radius-right-md:                  4px;
+$radius-right-lg:                  8px;
+$radius-right-pill:               99rem; 
+
+// outlines
+$outline-0:                          0;
+$outline-1px:                      1px;
+$outline-2px:                      2px;
+$outline-05:                       4px; 
+
+
+/* ---------------- shadow --------------- */
+
+$shadow-0:                                  0;
+$shadow-1:   0 1px 4px 0 rgba(0, 0, 0, 0.1);
+$shadow-2:   0 4px 8px 0 rgba(0, 0, 0, 0.1);
+$shadow-3:  0 8px 16px 0 rgba(0, 0, 0, 0.1);
+$shadow-4: 0 12px 24px 0 rgba(0, 0, 0, 0.1);
+$shadow-5: 0 16px 32px 0 rgba(0, 0, 0, 0.1);
+
+/* -------------- font sizes ------------- */
+
+$font-size-3xs:                    13px;
+$font-size-2xs:                    14px;
+$font-size-xs:                     15px;
+$font-size-sm:                     16px;
+$font-size-md:                     17px;
+$font-size-lg:                     22px;
+$font-size-xl:                     32px;
+$font-size-2xl:                    40px;
+$font-size-3xl:                    48px;
+$font-size-4xl:                    64px;
+$font-size-5xl:                    80px;
+
+
+/* ------------- font weight ------------- */
+$font-weight-thin:                  300;
+$font-weight-regular:               400;
+$font-weight-bold:                  700;
+$font-weight-super-bold:            800;

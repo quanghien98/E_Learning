@@ -1,11 +1,21 @@
+/* ---------------- utils ---------------- */
+@import "./scss/helpers/variables";
+@import "./scss/helpers/mixins";
+@import "./scss/base/reset";
+
 /* --------------- layouts --------------- */
 // admin layout
-@import "./scss/components/admin/sideBar";
-@import "./scss/components/admin/dashboard";
-@import "./scss/components/admin/courseManagement";
-@import "./scss/components/admin/userManagement";
+// @import "./scss/components/admin/sideBar";
+// @import "./scss/components/admin/dashboard";
+// @import "./scss/components/admin/courseManagement";
+// @import "./scss/components/admin/userManagement";
 @import "./scss/components/home/comment";
 @import "./scss/components//home/footer";
 
 @import "./scss/layouts/mainLayout";
+// Home layout
+@import "./scss/layouts/home/drafts/draftNavBar";
+@import "./scss/layouts/home/drafts/draftHeroImage";
 
+/* -------------- components ------------- */
+@import "./scss/components/customSearchBar";

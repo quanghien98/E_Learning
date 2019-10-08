@@ -29,7 +29,7 @@ export default class MasterRouter extends Component {
           <Redirect to="/" />
           <Route eaxact path="/courses/:category" component={Category} />
           <Redirect to="/" />
-          <Route eaxact path="/course/:courseID" component={CourseItem} />
+          {/* <Route eaxact path="/course/:courseID" component={CourseItem} /> */}
           <Redirect to="/" />
 
           <Route path="" component={PageNotFound} />

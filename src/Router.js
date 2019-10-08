@@ -9,7 +9,7 @@ import {
 /* -------------- components ------------- */
 import Home from "./layouts/Home";
 import PageNotFound from "./components/PageNotFound";
-import NavBar from "./components/layouts/NavBar";
+import NavBar from "./components/layouts/Navbar/index";
 import Category from "./components/Category";
 import CourseItem from "./containers/CourseItem";
 import SearchList from "./containers/SearchList";

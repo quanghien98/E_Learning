@@ -6,7 +6,7 @@ Kể từ lần cập nhật này, mọi thay đổi về sau khuyến nghị đ
 Dưới đây là những mục nên được xem là **có thể ảnh hưởng nhiều** đến dự án (có thể được bổ sung về sau):
 1. Cấu trúc thư mục
 2. Các tính năng liên quan đến điều hướng và quản lý dữ liệu (vd: react-router-dom, redux, react-redux,...)
-## ChangeLog #001.01-10-19: - [x] ***approved***
+## ChangeLog #001.01-10-19: - ✔️ ***approved by the whole team***
 ### Cài đặt redux store cho toàn dự án
 #### 1. Tổng quan về `configureStore.js`- file store tách biệt khỏi `index.js` 
 Thông thường, khi cài đặt store, file `index.js` của dự án sẽ tương tự như sau:

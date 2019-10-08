@@ -3,7 +3,6 @@ import { Collapse, Navbar, NavbarToggler, Nav, NavItem } from "reactstrap";
 import { NavLink } from "react-router-dom";
 import SearchBox from "../../SearchBox";
 // import SearchBar from "../../SearchBar";
-import _ from "lodash";
 import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { getSearchField } from "../../../actions/course/courseActions";
@@ -39,22 +38,8 @@ class NavBar extends Component {
       : this.props.history.push(queryPath);
   };
 
-  getSearchQuery = () => {
-    const url = this.props.history.location.pathname;
-    const query = _.last(url.split("/"));
-    return query;
-  };
-
-  handleSearchBoxValueDisplay = () => {
-    const query = this.getSearchQuery();
-    if (query) {
-      return query;
-    }
-  };
-
   render() {
     const { handleSearchChange } = this.props;
-    const searchBoxValue = this.handleSearchBoxValueDisplay();
     return (
       <Navbar light expand="md" className="draftNavBar">
         <div className="container">
@@ -70,7 +55,6 @@ class NavBar extends Component {
                 handleChange={handleSearchChange}
                 handleKeyDown={this.handleSearchOnKeyDown}
                 handleSubmitButton={this.handleSearchOnSubmit}
-                value={searchBoxValue || ""}
               />
             </Nav>
             <Nav className="ml-auto" navbar>

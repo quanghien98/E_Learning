@@ -32,8 +32,6 @@ class SearchList extends Component {
 
   render() {
     const query = this.getSearchQuery();
-    console.log(query);
-
     const filteredData = this.handleSearch(query);
     const notFound = `There's no match for "${query}", please try different keywords`;
 

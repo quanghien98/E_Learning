@@ -54,7 +54,7 @@ class HeroImage extends Component {
   handleSearchOnSubmit = () => {
     const queryPath = `/courses/search/${this.props.searchField}`;
     this.props.searchField.length === 0
-      ? this.props.history.push("/")
+      ? window.location.reload()
       : this.props.history.push(queryPath);
   };
 

@@ -1,0 +1,128 @@
+.nqhStyle{
+    background: #f7f8fa;
+    &__Comment{
+        font-size: 15px;
+        line-height: 1.43;
+        color: #29303b;
+        margin: auto;
+        padding: auto;
+        &__Title{
+            font-size: 24px;
+            font-weight: 600;
+            line-height: 2.5em;
+            border: solid transparent;
+            padding: 1% 2%;
+        }
+        &__Show{
+            &__Row{
+                margin: 0;
+                padding: 0;
+                &__Col{
+                    margin-right: 0px;
+                    background-color: #fff;
+                    border-radius: 3px;
+                    box-shadow: 0 1px 3px 0 rgba(20,23,28,.15);
+                    // flex-direction: column;
+                    height: 100%;
+                    min-height: 260px;
+                    padding: 32px;
+                }
+            }
+
+        }
+    }
+}
+.Infor{
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.5em;
+    align-items: center;
+    display: flex;
+    margin-bottom: 18px;
+    box-sizing: border-box;
+    &__Img{
+        img{
+            margin: 18px;
+            margin-bottom: 0;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 0;
+            vertical-align: middle;
+            max-width: 100%;
+            height: auto;
+        }
+    }
+}
+.Comment{
+    margin: 18px;
+    margin-top: 0px;
+    height: 100px;
+    &__P{
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 1.5em;
+    }
+}
+.Partner{
+    &__Row{
+        &__Header{
+            text-align: center;
+            font-size: 13px;
+            padding-top: 2%;
+            color: #686f7a;
+        }
+        &__Col{
+            &__PartnerLogo{
+                width: 100%;
+                display: inline-flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                padding-top: 32px;
+                &__Item{
+                    margin: 0 32px 8px;
+                }
+            }
+        }
+
+    }
+    .Student{
+        border: solid transparent;
+        flex-direction: row;
+        padding-bottom: 22px;
+        display: flex;
+        padding: 5% 20px;
+        &__Card{
+            border: 0 !important;
+            line-height: 1.5em;
+            text-align: center;
+            &__Title{
+                font-weight: 600;
+                font-size: 19px;
+                color: #505763;
+            }
+            &__Text{
+                padding-top: 5px;
+                font-size: 16px;
+                font-weight: 400;
+                line-height: 1.5em;
+            }
+            &__Btn{
+                display:inline-block;
+                color: #fff;
+                background-color: #FE5252;
+                border-color: transparent;
+            }
+            &__Btn:hover{
+                display:inline-block;
+                color: #fff;
+                background-color: #992337;
+                border-color: transparent;
+            }
+        }
+    }
+}
+.card{
+    border: none;
+    width: auto;
+    height: auto;
+}

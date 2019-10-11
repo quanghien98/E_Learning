@@ -1,0 +1,125 @@
+.nqhLayOut{
+    padding-top: 2%;
+    &__Row{
+        justify-content: center;
+        // align-items: center;
+        min-height: 1px;
+        padding-left: 15px;
+        padding-right: 15px;
+        &__Col{
+            color: #a1a7b3;
+            font-size: 13px;
+            line-height: 18px;
+            &__Nav{
+                &__Link{
+                    color: #007791;
+                    background-color: transparent;
+                    font-weight: 400;
+                    text-decoration: none;
+                }   
+                &__Link:hover{
+                    color: #000;
+                    cursor: pointer;
+                }
+            }
+            &__UnDropDown{
+                width: 50%;
+                justify-content: right;
+                &__DropTonggle{
+                    font-size: 13px;
+                    line-height: 18px;
+                    width: auto; 
+                    justify-items: center;
+                    color: #686f7a;
+                    background-color: #fff;
+                    border-color: #29303b;
+                    border-radius: 2px;
+                }
+                &__DropTonggle:hover{
+                    color: #29303b;
+                    cursor: pointer;
+                    background-color: #fff;
+                }    
+                &__DropMenu{
+                    &__Item{
+                        cursor: pointer;
+                    }
+                }                         
+            }
+
+
+        }
+    }
+}
+.nqhSytle{
+    justify-content: center;
+    text-align: right;
+}
+.mr10{
+    margin-right: 10px;
+}
+.ml10{
+    margin-left: 10px;
+}
+.udi{
+    vertical-align: -8%;
+    font-family: udemyicons!important;
+    font-style: normal;
+    font-weight: 400;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+}
+.textIcon{
+    font-size: 13px !important;
+    height: 13px !important;
+}
+.text{
+    font-size: 13px;
+}
+.nqhPading{
+    padding: 10px 20px;
+}
+.display{
+    border: solid transparent 1px;
+    padding: 1% 0;
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    background-color: #fff;
+    color: #a1a7b3;
+    font-size: 13px;
+    line-height: 18px;
+    width: 100%;
+    &__col{
+        &__nav{
+            &__link{
+                color: #007791;
+                background-color: transparent;
+                font-weight: 400;
+                text-decoration: none;
+            }
+            &__link:hover{
+                cursor: pointer;
+                color: #000;
+
+            }
+        }
+    }
+}
+.myStyle{
+    justify-content: flex-end;
+}
+.copy{
+    color: #686f7a;
+    margin-right: 20px;
+    font-size: 13px;
+    line-height: 18px;
+    width: 100%;
+}
+.logo{
+    margin-right: 20px;
+}
+.myBorder{
+    border-top: solid 1px #29303b;
+}

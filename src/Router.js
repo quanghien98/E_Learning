@@ -13,7 +13,7 @@ import NavBar from "./components/layouts/Navbar/index";
 import Category from "./components/Category";
 import CourseItem from "./containers/CourseItem";
 import SearchList from "./containers/SearchList";
-
+import SingleCourse from "./components/SingleCourse";
 export default class MasterRouter extends Component {
   render() {
     return (
@@ -28,9 +28,10 @@ export default class MasterRouter extends Component {
           />
           <Redirect to="/" />
           <Route eaxact path="/courses/:category" component={Category} />
-          <Redirect to="/" />
+          {/* <Redirect to="/" />
           <Route eaxact path="/course/:courseID" component={CourseItem} />
-          <Redirect to="/" />
+          <Redirect to="/" /> */}
+          <Route path="/course/courseID" component={SingleCourse} />
 
           <Route path="" component={PageNotFound} />
         </Switch>

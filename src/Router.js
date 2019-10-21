@@ -10,9 +10,9 @@ import {
 import Home from "./layouts/Home";
 import PageNotFound from "./components/PageNotFound";
 import NavBar from "./components/layouts/NavBar/";
-import Category from "./components/Category";
-import CourseItem from "./containers/CourseItem";
+// import CourseItem from "./containers/CourseItem";
 import SearchList from "./containers/SearchList";
+import CoursesByCategory from "./containers/CoursesByCategory";
 
 export default class MasterRouter extends Component {
   render() {
@@ -22,17 +22,20 @@ export default class MasterRouter extends Component {
         <Switch>
           <Route exact path="/" component={Home} />
           <Route
+            eaxact
+            path="/courses/category/:category"
+            component={CoursesByCategory}
+          />
+          <Route
             exact
             path="/courses/search/:searchQuery"
             component={SearchList}
           />
-          <Redirect to="/" />
-          <Route eaxact path="/courses/:category" component={Category} />
-          <Redirect to="/" />
-          {/* <Route eaxact path="/course/:courseID" component={CourseItem} /> */}
-          <Redirect to="/" />
 
-          <Route path="" component={PageNotFound} />
+          <Route path="/404" component={PageNotFound} />
+          <Redirect from="" to="/404" />
+          {/* <Route eaxact path="/course/:courseID" component={CourseItem} /> */}
+          {/* <Redirect to="/" /> */}
         </Switch>
       </Router>
     );

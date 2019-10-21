@@ -1,0 +1,26 @@
+html,
+body {
+  .container-fluid {
+    max-width: 1400px;
+    padding: 0 20px;
+  }
+
+  button.btn-secondary {
+    // padding: $padding-0 !important;
+    background-color: transparent !important;
+    border: transparent;
+    &:focus {
+      box-shadow: none !important;
+    }
+  }
+  .pagination {
+    display: flex !important;
+    align-items: center !important;
+    a.page-link {
+      border-radius: $radius-0;
+      &:focus {
+        box-shadow: none;
+      }
+    }
+  }
+}

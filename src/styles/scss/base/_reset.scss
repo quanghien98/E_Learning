@@ -1,8 +1,10 @@
+
 body,
 html {
   margin: 0 auto;
   font-family: "Open Sans", Roboto, sans-serif;
   font-size: $font-size-sm;
+  border-bottom: $border-05 solid $color-secondary-dark;
   h1,
   h2,
   h3,
@@ -11,9 +13,49 @@ html {
   h6 {
     margin: 0;
   }
-  .container {
-    max-width: 1400px;
-    padding: 0 20px;
-    
+
+  /* Box sizing rules */
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  /* Remove default padding */
+  ul[class],
+  ol[class] {
+    padding: 0;
+  }
+
+  /* Remove default margin */
+  body,
+  h1,
+  h2,
+  h3,
+  h4,
+  p,
+  ul[class],
+  ol[class],
+  li,
+  figure,
+  figcaption,
+  blockquote,
+  dl,
+  dd {
+    margin: 0;
+  }
+
+  /* Set core body defaults */
+  body {
+    scroll-behavior: smooth;
+    min-height: 100vh;
+    text-rendering: optimizeSpeed;
+    line-height: 1.5;
+  }
+
+  /* Remove list styles on ul, ol elements with a class attribute */
+  ul[class],
+  ol[class] {
+    list-style: none;
   }
 }

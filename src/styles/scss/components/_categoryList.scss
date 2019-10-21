@@ -1,0 +1,30 @@
+.categories {
+  margin: $margin-205 auto;
+  padding: $padding-4 $padding-205 !important;
+  &__itemWrapper {
+    padding: $padding-2 $padding-2 - 1;
+    &__categoryItem {
+      & :first-child {
+        margin-right: $margin-205;
+        font-size: $font-size-xl;
+      }
+      & :last-child {
+        text-transform: capitalize;
+        font-weight: $font-weight-regular;
+        font-size: $font-size-xs;
+      }
+      span {
+        @include text-shorten();
+      }
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      padding: $padding-205;
+      border: $border-1px solid $color-primary-darker;
+      box-shadow: 1px 3px 2px 1px rgba(0, 0, 0, 0.1);
+      &:hover {
+        box-shadow: $shadow-3;
+      }
+    }
+  }
+}

@@ -1,5 +1,12 @@
 import React, { Component } from "react";
-import { Collapse, Navbar, NavbarToggler, Nav, NavItem } from "reactstrap";
+import {
+  Collapse,
+  Navbar,
+  NavbarToggler,
+  Nav,
+  NavItem,
+  Container
+} from "reactstrap";
 import { NavLink } from "react-router-dom";
 import SearchBox from "../../SearchBox";
 // import SearchBar from "../../SearchBar";
@@ -34,7 +41,7 @@ class NavBar extends Component {
   handleSearchOnSubmit = () => {
     const queryPath = `/courses/search/${this.props.searchField}`;
     this.props.searchField.length === 0
-      ? this.props.history.push("/")
+      ? window.location.reload()
       : this.props.history.push(queryPath);
   };
 
@@ -42,7 +49,7 @@ class NavBar extends Component {
     const { handleSearchChange } = this.props;
     return (
       <Navbar light expand="md" className="draftNavBar">
-        <div className="container">
+        <Container fluid>
           <NavLink to="/" className="navbar-brand">
             Codemy
           </NavLink>
@@ -70,7 +77,7 @@ class NavBar extends Component {
               </NavItem>
             </Nav>
           </Collapse>
-        </div>
+        </Container>
       </Navbar>
     );
   }

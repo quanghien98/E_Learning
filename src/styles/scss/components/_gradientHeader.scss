@@ -1,0 +1,23 @@
+.gradientHeader {
+  .container {
+    @include breakpoint(tablet) {
+      padding: $padding-1 $padding-2 !important;
+      margin-top: $margin-05;
+
+      h2 {
+        font-size: $font-size-lg;
+      }
+    }
+    margin-top: $margin-05;
+    z-index: 0;
+    padding: $padding-4 $padding-0 !important;
+  }
+  width: 100%;
+  background: $background-base;
+  background: $background-gradient;
+  h2 {
+    text-transform: capitalize;
+    font-weight: $font-weight-thin;
+    color: $color-text-white;
+  }
+}

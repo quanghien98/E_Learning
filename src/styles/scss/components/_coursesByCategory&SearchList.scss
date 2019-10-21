@@ -1,0 +1,40 @@
+.coursesByCategory,
+.searchList {
+  padding: $padding-4 $padding-0 !important;
+  @include breakpoint(phone) {
+    padding: $padding-4 $padding-2;
+  }
+
+  @include breakpoint(xsphone) {
+    padding: $padding-4 $padding-2;
+  }
+  @include breakpoint(tablet) {
+    padding: $padding-4 $padding-2;
+  }
+}
+.coursesByCategory {
+  &__sortWrapper {
+    background-color: $color-primary-dark;
+    padding: $padding-1 $padding-2;
+  }
+}
+.searchList {
+  &__header {
+    margin-bottom: $margin-4;
+    .container {
+      min-height: 100px !important;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      @include breakpoint(tablet) {
+        padding: $padding-2 $padding-2 !important;
+      }
+      h5 {
+        font-weight: $font-weight-thin;
+      }
+      margin-top: $margin-4;
+      padding: $padding-2 $padding-0 !important;
+    }
+    background: $color-primary-dark;
+  }
+}

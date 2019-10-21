@@ -17,7 +17,7 @@ class HeroImage extends Component {
     super(props);
 
     this.state = {
-      heroImage: hero1,
+      heroImage: "",
       searchBarSize: "lg",
       searchPlaceholder: "Search for your favorite tech courses"
     };
@@ -28,6 +28,9 @@ class HeroImage extends Component {
   }
 
   handleImageChange = () => {
+    this.setState({
+      heroImage: hero1
+    });
     const imageData = [hero1, hero2, hero3, hero4, hero5];
     const hrs = 1 / 60;
     const secPerhr = 3600;
@@ -54,7 +57,7 @@ class HeroImage extends Component {
   handleSearchOnSubmit = () => {
     const queryPath = `/courses/search/${this.props.searchField}`;
     this.props.searchField.length === 0
-      ? this.props.history.push("/")
+      ? window.location.reload()
       : this.props.history.push(queryPath);
   };
 
@@ -64,7 +67,10 @@ class HeroImage extends Component {
       <div className="heroImage">
         <img src={this.state.heroImage} alt="hero" />
         <div className="heroImage__overlayBg" />
-        <Container className="heroImage__overlayTitle  d-flex flex-column justify-content-center">
+        <Container
+          fluid
+          className="heroImage__overlayTitle  d-flex flex-column justify-content-center"
+        >
           <h1>Ready. Set. Rise</h1>
           <h5>
             <span>Elevate yourself to the next level.</span>

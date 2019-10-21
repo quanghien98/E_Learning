@@ -11,10 +11,10 @@
     }
     @include text-shorten();
   }
-  &__btn {
+  button.customSearchBar__btn:not(.btn, .btn-primary) {
     border: none;
     color: $color-secondary;
-    background-color: $color-primary;
+    background-color: $color-primary !important;
     border-radius: 0 $radius-sm $radius-sm 0 !important;
     transition: none;
     &:hover {

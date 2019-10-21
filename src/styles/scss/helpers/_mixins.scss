@@ -158,7 +158,17 @@
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+@mixin multiline-text-shorten($lineHeight: 1.5, $lines: 4) {
+  /* Required declarations: */
+  overflow: hidden;
+  display: -webkit-box;
+  line-height: $lineHeight;
+  max-height: $lines * $lineHeight;
+  -webkit-box-orient: vertical;
 
+  /* Limit the text block to lines */
+  -webkit-line-clamp: $lines;
+}
 /* ---------- overlay background --------- */
 @mixin overlay-bg($opacity) {
   position: absolute;

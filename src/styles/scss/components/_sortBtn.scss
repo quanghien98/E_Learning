@@ -1,0 +1,21 @@
+.sortBtn {
+  :first-child {
+    margin-right: $margin-2px;
+  }
+  padding: $padding-1 $padding-0 !important;
+  display: flex;
+  align-items: center;
+  font-weight: $font-weight-bold;
+  color: $color-text-grey;
+  transition: none;
+  &__dropdownList {
+    font-size: $font-size-3xs;
+    min-width: 6rem;
+    &__dropdownItem {
+      padding: $padding-1 $padding-105;
+      &:hover {
+        background-color: $color-primary-dark;
+      }
+    }
+  }
+}

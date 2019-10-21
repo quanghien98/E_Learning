@@ -1,0 +1,105 @@
+.coursesByCategory {
+  .itemCardStretch:nth-child(2) {
+    margin-top: $margin-4;
+  }
+}
+.coursesByCategory,
+.searchList {
+  .itemCardStretch {
+    @include breakpoint(tablet) {
+      padding: $padding-0 $padding-205;
+    }
+    @include breakpoint(xsphone) {
+      padding-left: $padding-2;
+      padding-right: $padding-2;
+    }
+    // larger screens
+    padding: $padding-0;
+    margin: $margin-0;
+    &__card {
+      @include breakpoint(tablet) {
+        padding: $padding-105 $padding-0;
+        margin: $margin-0;
+      }
+      @include breakpoint(phone) {
+        max-height: 120px;
+      }
+      // larger screens
+      margin: $margin-0;
+      padding: $padding-2 $padding-1 $padding-1 $padding-0;
+      border-top: $border-1px solid $color-primary-darker;
+      cursor: pointer;
+      &:hover {
+        background-color: $color-primary-dark;
+      }
+      &__img {
+        @include breakpoint(xsphone) {
+          justify-content: center;
+        }
+        // larger screens
+        padding: $padding-0;
+        display: flex;
+        align-items: center;
+        img {
+          @include breakpoint(phone) {
+            max-height: 100px;
+            min-height: 80px;
+            max-width: 80px;
+          }
+          object-position: center;
+          object-fit: cover;
+          border: $border-1px solid $color-primary-darker;
+          display: block;
+          object-fit: cover;
+          max-width: 90%;
+          max-height: 120px;
+          height: auto;
+        }
+      }
+      &__details {
+        @include breakpoint(phone) {
+          p {
+            display: none !important;
+          }
+        }
+        @include breakpoint(xsphone) {
+          p {
+            display: none !important;
+          }
+        }
+        @include breakpoint(tablet) {
+          max-height: 120px;
+          align-items: center;
+        }
+        max-height: 170px;
+        padding-bottom: $padding-1;
+        flex-direction: column;
+        h6 {
+          font-size: $font-size-xs;
+        }
+        h6,
+        p {
+          padding: $padding-05 $padding-0;
+        }
+        p {
+          @include breakpoint(tablet) {
+            @include multiline-text-shorten($lines: 3);
+          }
+          font-size: $font-size-3xs;
+          min-height: 50px;
+          display: block;
+          @include multiline-text-shorten;
+        }
+        h6 {
+          font-weight: $font-weight-bold;
+        }
+      }
+      &__details {
+        @include breakpoint(xsphone) {
+          padding-left: $padding-2;
+          padding-right: $padding-2;
+        }
+      }
+    }
+  }
+}

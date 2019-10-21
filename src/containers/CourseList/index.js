@@ -8,11 +8,7 @@ class CourseList extends Component {
   }
 
   render() {
-    const { courses } = this.props;
-    const courseID = courses.map((course, idx) => {
-      return <h1 key={idx}>{course.maKhoaHoc}</h1>;
-    });
-    return <div className="text-center">{courseID}</div>;
+    return <div>Course List</div>;
   }
 }
 

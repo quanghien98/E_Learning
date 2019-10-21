@@ -2,20 +2,27 @@
 @import "./scss/helpers/variables";
 @import "./scss/helpers/mixins";
 @import "./scss/base/reset";
-
+@import "./scss//vendors/bootstrap";
 /* --------------- layouts --------------- */
 // admin layout
 // @import "./scss/components/admin/sideBar";
 // @import "./scss/components/admin/dashboard";
 // @import "./scss/components/admin/courseManagement";
 // @import "./scss/components/admin/userManagement";
-@import "./scss/components/home/comment";
-@import "./scss/components//home/footer";
 
-@import "./scss/layouts/mainLayout";
+// @import "./scss/layouts/mainLayout";
+
 // Home layout
 @import "./scss/layouts/home/drafts/draftNavBar";
 @import "./scss/layouts/home/drafts/draftHeroImage";
+@import "./scss/layouts/home/footer";
 
 /* -------------- components ------------- */
+@import "./scss/components/gradientHeader";
 @import "./scss/components/customSearchBar";
+@import "./scss/components/comment";
+@import "./scss/components/categoryList";
+@import "./scss/components/coursesByCategory&SearchList";
+@import "./scss/components/sortBtn";
+@import "./scss/components/itemCardStretch";
+@import "./scss/components/listPagination";

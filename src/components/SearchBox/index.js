@@ -1,6 +1,18 @@
 import React from "react";
 import { InputGroup, Input, InputGroupAddon, Button } from "reactstrap";
 import Icon from "@material-ui/core/Icon";
+import _ from "lodash";
+import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
+
+const handleSearchBoxValueDisplay = (props, url) => {
+  const query = _.last(url.split("/"));
+  const searchPathname = `/courses/search/${query}`;
+  if (url === searchPathname) {
+    return props.searchField;
+  }
+  return "";
+};
 
 const SearchBox = ({
   size,
@@ -8,8 +20,11 @@ const SearchBox = ({
   handleChange,
   handleKeyDown,
   handleSubmitButton,
-  value
+  ...props
 }) => {
+  const url = props.location.pathname;
+  const searchValue = handleSearchBoxValueDisplay(props, url);
+
   return (
     <InputGroup size={size} className="customSearchBar">
       <Input
@@ -19,7 +34,7 @@ const SearchBox = ({
         placeholder={placeholder}
         onChange={handleChange}
         onKeyDown={handleKeyDown}
-        value={value}
+        defaultValue={searchValue}
       />
       <InputGroupAddon addonType="append">
         <Button
@@ -32,4 +47,10 @@ const SearchBox = ({
     </InputGroup>
   );
 };
-export default SearchBox;
+
+const mapStateToProps = state => {
+  return {
+    searchField: state.searchField
+  };
+};
+export default withRouter(connect(mapStateToProps)(SearchBox));

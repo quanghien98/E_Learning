@@ -13,6 +13,7 @@ import NavBar from "./components/layouts/NavBar/";
 // import CourseItem from "./containers/CourseItem";
 import SearchList from "./containers/SearchList";
 import CoursesByCategory from "./containers/CoursesByCategory";
+import CourseSyllabus from "./containers/CourseSyllabus";
 
 export default class MasterRouter extends Component {
   render() {
@@ -31,7 +32,11 @@ export default class MasterRouter extends Component {
             path="/courses/search/:searchQuery"
             component={SearchList}
           />
-
+          <Route
+            exact
+            path="/course/learn/syllabus"
+            component={CourseSyllabus}
+          />
           <Route path="/404" component={PageNotFound} />
           <Redirect from="" to="/404" />
           {/* <Route eaxact path="/course/:courseID" component={CourseItem} /> */}

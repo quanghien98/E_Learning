@@ -21,7 +21,10 @@ class CoursesByCategory extends Component {
     super(props);
 
     this.state = {
-      correctPath: true
+      correctPath: true,
+      currentPage: 1,
+      itemsPerPage: 10,
+      currentItems: []
     };
   }
 
@@ -51,10 +54,38 @@ class CoursesByCategory extends Component {
     });
     if (path.length === 0) {
       this.setState({
-        correctPath: false
+        correctPath: false,
+        currentPage: 1,
+        itemsPerPage: 10,
+        currentItems: []
       });
     }
   };
+  /* ------------- pagitnation ------------- */
+
+  setCurrentPage = pageNumber => {
+    this.handleScroll();
+    this.setState({
+      currentPage: pageNumber
+    });
+  };
+
+  static getDerivedStateFromProps(props, state) {
+    if (state.currentItems !== props.categorizedCourses) {
+      const indexOfLastItem = state.currentPage * state.itemsPerPage;
+      const indexOfFirstItem = indexOfLastItem - state.itemsPerPage;
+      // console.log(indexOfFirstItem, indexOfLastItem);
+
+      return {
+        currentItems: props.categorizedCourses.slice(
+          indexOfFirstItem,
+          indexOfLastItem
+        )
+      };
+    }
+  }
+  handleScroll = () => window.scrollTo(100, this.myRef.offsetTop);
+  /* ------------ end pagination ----------- */
 
   componentDidMount() {
     const categoryPathList = categories.map(cat => cat.path);
@@ -92,7 +123,13 @@ class CoursesByCategory extends Component {
               img={course.hinhAnh}
             />
           ))}
-          <ListPaginagtion href={"#categoryList"} />
+          <ListPaginagtion
+            paginate={this.setCurrentPage}
+            totalItems={this.props.categorizedCourses.length}
+            itemsPerPage={this.state.itemsPerPage}
+            currentPage={this.state.currentPage}
+            href={"#categoryList"}
+          />
         </Container>
       </>
     );

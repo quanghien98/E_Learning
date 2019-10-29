@@ -1,0 +1,26 @@
+.courseSyllabus__sidebar {
+  &__lessonNav {
+    background-color: $color-primary-darker;
+    display: flex !important;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 0;
+    border-radius: 3px;
+    button.btn.btn-secondary {
+      background: transparent !important;
+      border-radius: 0;
+      font-size: $font-size-xl;
+      color: $color-text-black;
+      &:hover {
+        background-color: $color-primary-dark !important;
+      }
+      &:active {
+        color: $color-text-white !important;
+      }
+    }
+    .lessonNav__title {
+      @include text-shorten();
+      font-size: $font-size-xs;
+    }
+  }
+}

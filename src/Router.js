@@ -9,16 +9,19 @@ import {
 /* -------------- components ------------- */
 import Home from "./layouts/Home";
 import PageNotFound from "./components/PageNotFound";
-import NavBar from "./components/layouts/NavBar/";
+import NavBar from "./components/layouts/Navbar";
 // import CourseItem from "./containers/CourseItem";
 import SearchList from "./containers/SearchList";
 import CoursesByCategory from "./containers/CoursesByCategory";
+import Navbarv2 from "./components/layouts/Navbarv2";
+import LoginModal from "./components/LoginModal";
 
 export default class MasterRouter extends Component {
   render() {
     return (
       <Router>
-        <NavBar />
+        {/* <NavBar /> */}
+        <Navbarv2 />
         <Switch>
           <Route exact path="/" component={Home} />
           <Route
@@ -36,6 +39,7 @@ export default class MasterRouter extends Component {
           <Redirect from="" to="/404" />
           {/* <Route eaxact path="/course/:courseID" component={CourseItem} /> */}
           {/* <Redirect to="/" /> */}
+          
         </Switch>
       </Router>
     );

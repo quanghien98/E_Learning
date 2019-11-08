@@ -13,7 +13,10 @@
 // @import "./scss/layouts/mainLayout";
 
 // Home layout
-@import "./scss/layouts/home/drafts/draftNavBar";
+// @import "./scss/layouts/home/drafts/draftNavBar";
+@import './scss/components/navbarV2';
+@import './scss/components/loginModal';
+@import './scss/components/signupModal';
 @import "./scss/layouts/home/drafts/draftHeroImage";
 @import "./scss/layouts/home/footer";
 

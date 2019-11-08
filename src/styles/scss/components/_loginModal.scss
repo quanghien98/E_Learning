@@ -1,0 +1,313 @@
+@import url(//db.onlinewebfonts.com/c/08654af6de96d722b817d122ec939cad?family=UdemyIcons);
+
+@font-face {
+  font-family: "UdemyIcons";
+  src: url("//db.onlinewebfonts.com/t/08654af6de96d722b817d122ec939cad.eot");
+  src: url("//db.onlinewebfonts.com/t/08654af6de96d722b817d122ec939cad.eot?#iefix")
+      format("embedded-opentype"),
+    url("//db.onlinewebfonts.com/t/08654af6de96d722b817d122ec939cad.woff2")
+      format("woff2"),
+    url("//db.onlinewebfonts.com/t/08654af6de96d722b817d122ec939cad.woff")
+      format("woff"),
+    url("//db.onlinewebfonts.com/t/08654af6de96d722b817d122ec939cad.ttf")
+      format("truetype"),
+    url("//db.onlinewebfonts.com/t/08654af6de96d722b817d122ec939cad.svg#UdemyIcons")
+      format("svg");
+}
+
+.modal-dialog {
+  font-family: open sans, helvetica neue, Helvetica, Arial, sans-serif;
+  line-height: 1.43;
+  max-width: 380px;
+  font-size: 15px;
+
+  a {
+    color: #007791;
+    background-color: transparent;
+    font-weight: 400;
+    text-decoration: none;
+  }
+
+  .udi {
+    font-family: udemyicons !important;
+    speak: none;
+    font-style: normal;
+    font-weight: 400;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    vertical-align: -8%;
+  }
+
+  .fxac {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  *:before,
+  *:after {
+    box-sizing: border-box;
+  }
+
+  .loginbox-v4__header {
+    width: 100%;
+    border-bottom: solid 1px #dedfe0;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    color: #29303b;
+    display: block;
+    font-weight: 600;
+    font-size: 15px;
+    padding: 24px 64px 24px 24px;
+  }
+
+  .modal-header .close {
+    padding: 1rem 1rem;
+    margin: -2.5rem -3rem -1rem auto;
+  }
+
+  .loginbox-v4__content {
+    padding: 24px 24px 16px;
+
+    .facebook-auth--social-btn--facebook--3SDC_ {
+      background-color: #1a538a;
+
+      &:hover {
+        color: #fff;
+        background-color: #164675;
+      }
+    }
+
+    @media screen and (min-width: 992px) {
+      .google-auth--social-btn--google--1H6_f {
+        margin-bottom: 16px !important;
+      }
+    }
+    .google-auth--social-btn--google--1H6_f {
+      color: #29303b !important;
+      background-color: #fff;
+      border: 1px solid #dedfe0;
+      margin-bottom: 8px;
+      &:hover {
+        background-color: #f2f3f5;
+      }
+    }
+
+    .google-auth--social-btn--google--1H6_f .google-auth--social-icon--3uKst {
+      background: url("https://www.udemy.com/staticx/udemy/js/webpack/g-logo.4c9c3df69e998b08e1d14c4bbbeb3949.svg")
+        no-repeat center center;
+      background-size: 24px;
+      border: none !important;
+    }
+
+    .google-auth--social-btn--google--1H6_f
+      .google-auth--social-icon--3uKst:before {
+      content: "";
+      display: inline-block;
+    }
+    .social-buttons--social-btn--1JTo2 {
+      box-shadow: 0 2px 2px 0 rgba(41, 48, 59, 0.24),
+        0 0 2px 0 rgba(41, 48, 59, 0.12);
+      color: #fff;
+      border-radius: 2px;
+      font-size: 16px;
+      font-weight: 600;
+      height: 48px;
+      margin-bottom: 8px;
+      padding: 0;
+      .udi-facebook-f:before {
+        content: "\F09A";
+      }
+    }
+
+    .social-buttons--social-btn--1JTo2 .social-buttons--social-icon--3jP8h {
+      display: inline-block;
+      font-size: 20px;
+      font-weight: 400;
+      padding: 16px 0;
+      text-align: center;
+      width: 48px;
+    }
+
+    .facebook-auth--social-btn--facebook--3SDC_
+      .facebook-auth--social-icon--3wyy2:before {
+      font-size: 24px;
+      position: relative;
+    }
+
+    .manage-fields-wrapper {
+      background: 0 0;
+      box-shadow: none;
+      & > div {
+        margin-bottom: 8px;
+        position: relative;
+      }
+
+      #form-item-email:before {
+        content: "\F0E5";
+        font-family: udemyicons;
+        color: #cacbcc;
+        font-size: 16px;
+        left: 8px;
+        line-height: 1;
+        margin-top: 16px;
+        position: absolute;
+        text-align: center;
+        top: 0;
+        width: 24px;
+        z-index: 2;
+      }
+
+      #form-item-email label {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        margin: -1px;
+        padding: 0;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        border: 0;
+        display: inline-block;
+        max-width: 100%;
+        font-weight: 400;
+      }
+
+      input[type="email"] {
+        border-radius: 5px;
+        font-size: 18px;
+        height: auto;
+        padding: 11px 45px 12px 40px;
+        display: block;
+        width: 100%;
+        line-height: 1.43;
+        border: 1px solid #cacbcc;
+        box-shadow: none;
+        transition: border-color ease-in-out 0.08s, box-shadow ease-in-out 0.08s;
+        margin: 0;
+      }
+
+      #form-item-password:before {
+        content: "\F023";
+        font-family: udemyicons;
+        color: #cacbcc;
+        font-size: 16px;
+        left: 8px;
+        line-height: 1;
+        margin-top: 16px;
+        position: absolute;
+        text-align: center;
+        top: 0;
+        width: 24px;
+        z-index: 2;
+      }
+
+      #form-item-password label {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        margin: -1px;
+        padding: 0;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        border: 0;
+        display: inline-block;
+        max-width: 100%;
+        font-weight: 400;
+      }
+
+      .pos-r {
+        position: relative;
+      }
+
+      input[type="password"] {
+        border-radius: 5px;
+        font-size: 18px;
+        height: auto;
+        padding: 11px 45px 12px 40px;
+        display: block;
+        width: 100%;
+        line-height: 1.43;
+        border: 1px solid #cacbcc;
+        box-shadow: none;
+        transition: border-color ease-in-out 0.08s, box-shadow ease-in-out 0.08s;
+        margin: 0;
+      }
+    }
+
+    .form-actions {
+      margin: 0 0 16px;
+      text-align: right;
+
+      .submit-row {
+        text-align: center;
+        .btn {
+          display: inline-block;
+          margin-bottom: 0;
+          font-weight: 600;
+          text-align: center;
+          vertical-align: middle;
+          touch-action: manipulation;
+          cursor: pointer;
+          background-image: none;
+          border: 1px solid transparent;
+          white-space: nowrap;
+          padding: 11px 12px;
+          font-size: 15px;
+          line-height: 1.35135;
+          border-radius: 2px;
+          -webkit-user-select: none;
+          -moz-user-select: none;
+          -ms-user-select: none;
+          user-select: none;
+        }
+        .btn-primary {
+          color: #fff;
+          background-color: #ec5252;
+          border: 1px solid transparent;
+        }
+
+        input {
+          margin: 0;
+        }
+
+        input[type="submit"] {
+          -webkit-appearance: button;
+          cursor: pointer;
+        }
+        & > input {
+          font-size: 16px;
+          font-weight: 600;
+          height: 48px;
+          margin-bottom: 16px !important;
+          width: 100%;
+        }
+
+        a {
+          color: #007791;
+          background-color: transparent;
+          font-weight: 400;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+
+  .loginbox-v4__footer {
+    display: block;
+    padding: 0 0 24px;
+    text-align: center;
+  }
+  .loginbox-v4__footer.modal-footer {
+    border-top: none;
+  }
+
+  .loginbox-v4__footer a {
+    color: #007791;
+    background-color: transparent;
+    text-decoration: none;
+    font-weight: 600;
+  }
+}

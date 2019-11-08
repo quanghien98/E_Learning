@@ -1,0 +1,917 @@
+@import url(//db.onlinewebfonts.com/c/08654af6de96d722b817d122ec939cad?family=UdemyIcons);
+
+@font-face {
+  font-family: "UdemyIcons";
+  src: url("//db.onlinewebfonts.com/t/08654af6de96d722b817d122ec939cad.eot");
+  src: url("//db.onlinewebfonts.com/t/08654af6de96d722b817d122ec939cad.eot?#iefix")
+      format("embedded-opentype"),
+    url("//db.onlinewebfonts.com/t/08654af6de96d722b817d122ec939cad.woff2")
+      format("woff2"),
+    url("//db.onlinewebfonts.com/t/08654af6de96d722b817d122ec939cad.woff")
+      format("woff"),
+    url("//db.onlinewebfonts.com/t/08654af6de96d722b817d122ec939cad.ttf")
+      format("truetype"),
+    url("//db.onlinewebfonts.com/t/08654af6de96d722b817d122ec939cad.svg#UdemyIcons")
+      format("svg");
+}
+
+.navbar-v2 {
+  .udi {
+    vertical-align: -8%;
+    font-family: udemyicons !important;
+    speak: none;
+    font-style: normal;
+    font-weight: 400;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  .navbar-wrapper {
+    font-family: open sans, helvetica neue, Helvetica, Arial, sans-serif;
+    margin: 0;
+    height: 65px;
+
+    .navbar-body {
+      width: 100%;
+      height: 100%;
+      margin: auto;
+
+      .navbar-inner {
+        width: 100%;
+        height: 100%;
+
+        .navbar-content-left {
+          flex-grow: 1;
+          height: 100%;
+          font-size: 13px;
+
+          i.fas.fa-th {
+            margin-right: 4px;
+          }
+
+          &-wrapper {
+            width: 100%;
+            height: 100%;
+            // background-color: orange;
+
+            &-inner {
+              height: 100%;
+
+              nav {
+                *:before,
+                *:after {
+                  box-sizing: border-box;
+                }
+                height: 100%;
+                &.navbar {
+                  padding-left: 0px;
+                }
+
+                .navbar-nav li:hover > ul.dropdown-menu {
+                  display: block;
+                }
+
+                .navbar-nav {
+                  .dropdown {
+                    position: relative;
+                    font-size: 13px;
+                    margin: 0 2px;
+                    padding: 10px 0;
+
+                    .login-modal-dialog {
+                      a {
+                        color: #007791;
+                        background-color: transparent;
+                        font-weight: 400;
+                        text-decoration: none;
+                      }
+
+                      .udi {
+                        font-family: udemyicons !important;
+                        speak: none;
+                        font-style: normal;
+                        font-weight: 400;
+                        font-variant: normal;
+                        text-transform: none;
+                        line-height: 1;
+                        -webkit-font-smoothing: antialiased;
+                        -moz-osx-font-smoothing: grayscale;
+                        vertical-align: -8%;
+                      }
+
+                      .fxac {
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                      }
+
+                      *:before,
+                      *:after {
+                        box-sizing: border-box;
+                      }
+
+                      font-family: open sans, helvetica neue, Helvetica, Arial,
+                        sans-serif;
+                      line-height: 1.43;
+                      max-width: 380px;
+                      font-size: 15px;
+
+                      .loginbox-v4__header {
+                        width: 100%;
+                        border-bottom: solid 1px #dedfe0;
+                        border-top-left-radius: 6px;
+                        border-top-right-radius: 6px;
+                        color: #29303b;
+                        display: block;
+                        font-weight: 600;
+                        font-size: 15px;
+                        padding: 24px 64px 24px 24px;
+                      }
+
+                      .modal-header .close {
+                        padding: 1rem 1rem;
+                        margin: -2.5rem -3rem -1rem auto;
+                      }
+
+                      .loginbox-v4__content {
+                        padding: 24px 24px 16px;
+
+                        .facebook-auth--social-btn--facebook--3SDC_ {
+                          background-color: #1a538a;
+
+                          &:hover {
+                            color: #fff;
+                            background-color: #164675;
+                          }
+                        }
+
+                        @media screen and (min-width: 992px) {
+                          .google-auth--social-btn--google--1H6_f {
+                            margin-bottom: 16px !important;
+                          }
+                        }
+                        .google-auth--social-btn--google--1H6_f {
+                          color: #29303b !important;
+                          background-color: #fff;
+                          border: 1px solid #dedfe0;
+                          margin-bottom: 8px;
+                          &:hover {
+                            background-color: #f2f3f5;
+                          }
+                        }
+
+                        .google-auth--social-btn--google--1H6_f
+                          .google-auth--social-icon--3uKst {
+                          background: url("https://www.udemy.com/staticx/udemy/js/webpack/g-logo.4c9c3df69e998b08e1d14c4bbbeb3949.svg")
+                            no-repeat center center;
+                          background-size: 24px;
+                          border: none !important;
+                        }
+
+                        .google-auth--social-btn--google--1H6_f
+                          .google-auth--social-icon--3uKst:before {
+                          content: "";
+                          display: inline-block;
+                        }
+                        .social-buttons--social-btn--1JTo2 {
+                          box-shadow: 0 2px 2px 0 rgba(41, 48, 59, 0.24),
+                            0 0 2px 0 rgba(41, 48, 59, 0.12);
+                          color: #fff;
+                          border-radius: 2px;
+                          font-size: 16px;
+                          font-weight: 600;
+                          height: 48px;
+                          margin-bottom: 8px;
+                          padding: 0;
+                          .udi-facebook-f:before {
+                            content: "\F09A";
+                          }
+                        }
+
+                        .social-buttons--social-btn--1JTo2
+                          .social-buttons--social-icon--3jP8h {
+                          display: inline-block;
+                          font-size: 20px;
+                          font-weight: 400;
+                          padding: 16px 0;
+                          text-align: center;
+                          width: 48px;
+                        }
+
+                        .facebook-auth--social-btn--facebook--3SDC_
+                          .facebook-auth--social-icon--3wyy2:before {
+                          font-size: 24px;
+                          position: relative;
+                        }
+
+                        .manage-fields-wrapper {
+                          background: 0 0;
+                          box-shadow: none;
+                          & > div {
+                            margin-bottom: 8px;
+                            position: relative;
+                          }
+
+                          #form-item-email:before {
+                            content: "\F0E5";
+                            font-family: udemyicons;
+                            color: #cacbcc;
+                            font-size: 16px;
+                            left: 8px;
+                            line-height: 1;
+                            margin-top: 16px;
+                            position: absolute;
+                            text-align: center;
+                            top: 0;
+                            width: 24px;
+                            z-index: 2;
+                          }
+
+                          #form-item-email label {
+                            position: absolute;
+                            width: 1px;
+                            height: 1px;
+                            margin: -1px;
+                            padding: 0;
+                            overflow: hidden;
+                            clip: rect(0, 0, 0, 0);
+                            border: 0;
+                            display: inline-block;
+                            max-width: 100%;
+                            font-weight: 400;
+                          }
+
+                          input[type="email"] {
+                            border-radius: 5px;
+                            font-size: 18px;
+                            height: auto;
+                            padding: 11px 45px 12px 40px;
+                            display: block;
+                            width: 100%;
+                            line-height: 1.43;
+                            border: 1px solid #cacbcc;
+                            box-shadow: none;
+                            transition: border-color ease-in-out 0.08s,
+                              box-shadow ease-in-out 0.08s;
+                            margin: 0;
+                          }
+
+                          #form-item-password:before {
+                            content: "\F023";
+                            font-family: udemyicons;
+                            color: #cacbcc;
+                            font-size: 16px;
+                            left: 8px;
+                            line-height: 1;
+                            margin-top: 16px;
+                            position: absolute;
+                            text-align: center;
+                            top: 0;
+                            width: 24px;
+                            z-index: 2;
+                          }
+
+                          #form-item-password label {
+                            position: absolute;
+                            width: 1px;
+                            height: 1px;
+                            margin: -1px;
+                            padding: 0;
+                            overflow: hidden;
+                            clip: rect(0, 0, 0, 0);
+                            border: 0;
+                            display: inline-block;
+                            max-width: 100%;
+                            font-weight: 400;
+                          }
+
+                          .pos-r {
+                            position: relative;
+                          }
+
+                          input[type="password"] {
+                            border-radius: 5px;
+                            font-size: 18px;
+                            height: auto;
+                            padding: 11px 45px 12px 40px;
+                            display: block;
+                            width: 100%;
+                            line-height: 1.43;
+                            border: 1px solid #cacbcc;
+                            box-shadow: none;
+                            transition: border-color ease-in-out 0.08s,
+                              box-shadow ease-in-out 0.08s;
+                            margin: 0;
+                          }
+                        }
+
+                        .form-actions {
+                          margin: 0 0 16px;
+                          text-align: right;
+
+                          .submit-row {
+                            text-align: center;
+                            .btn {
+                              display: inline-block;
+                              margin-bottom: 0;
+                              font-weight: 600;
+                              text-align: center;
+                              vertical-align: middle;
+                              touch-action: manipulation;
+                              cursor: pointer;
+                              background-image: none;
+                              border: 1px solid transparent;
+                              white-space: nowrap;
+                              padding: 11px 12px;
+                              font-size: 15px;
+                              line-height: 1.35135;
+                              border-radius: 2px;
+                              -webkit-user-select: none;
+                              -moz-user-select: none;
+                              -ms-user-select: none;
+                              user-select: none;
+                            }
+                            .btn-primary {
+                              color: #fff;
+                              background-color: #ec5252;
+                              border: 1px solid transparent;
+                            }
+
+                            input {
+                              margin: 0;
+                            }
+
+                            input[type="submit"] {
+                              -webkit-appearance: button;
+                              cursor: pointer;
+                            }
+                            & > input {
+                              font-size: 16px;
+                              font-weight: 600;
+                              height: 48px;
+                              margin-bottom: 16px !important;
+                              width: 100%;
+                            }
+
+                            a {
+                              color: #007791;
+                              background-color: transparent;
+                              font-weight: 400;
+                              text-decoration: none;
+                            }
+                          }
+                        }
+                      }
+
+                      .loginbox-v4__footer {
+                        display: block;
+                        padding: 0 0 24px;
+                        text-align: center;
+                      }
+
+                      .loginbox-v4__footer a {
+                        color: #007791;
+                        background-color: transparent;
+                        text-decoration: none;
+                        font-weight: 600;
+                      }
+                    }
+
+                    .dropdown-menu {
+                      .menu__link a {
+                        padding: 5px 15px;
+                        hyphens: auto;
+                        overflow-wrap: break-word;
+                        background-color: transparent;
+                        &:hover {
+                          background: #f2f3f5;
+                          color: #007791 !important;
+                        }
+                        &:not(.btn) {
+                          display: flex;
+                          flex-direction: row;
+                          align-items: center;
+                          color: #29303b;
+                          font-size: 15px;
+                          font-weight: 400;
+                          width: 100%;
+                          position: relative;
+                        }
+                      }
+                      .menu__icon {
+                        color: #a1a7b3 !important;
+                        font-size: 20px;
+                        font-weight: 600 !important;
+                        margin-right: 20px;
+                      }
+                      .udi {
+                        vertical-align: -8%;
+                        font-family: udemyicons !important;
+                        speak: none;
+                        font-style: normal;
+                        font-weight: 400;
+                        font-variant: normal;
+                        text-transform: none;
+                        line-height: 1;
+                        -webkit-font-smoothing: antialiased;
+                        -moz-osx-font-smoothing: grayscale;
+                      }
+                      .fx {
+                        flex: 1;
+                        min-width: 1px;
+                      }
+                      .menu__arrow {
+                        color: #a1a7b3;
+                        font-size: 10px;
+                        margin-right: -2px;
+                        padding: 0;
+                      }
+                      .udi-next:before {
+                        content: "\E73E";
+                      }
+                      .udi-development:before {
+                        content: "\E6AD";
+                      }
+                      .udi-design:before {
+                        content: "\E6AC";
+                      }
+                      .udi-hardware:before {
+                        content: "\E6D2";
+                      }
+                      .udi-business:before {
+                        content: "\E69F";
+                      }
+                      .udi-finance:before {
+                        content: "\E6B5";
+                      }
+                      .udi-office-productivity:before {
+                        content: "\E6ED";
+                      }
+                      .udi-personal-development:before {
+                        content: "\E6F3";
+                      }
+                      .udi-marketing:before {
+                        content: "\E6DC";
+                      }
+                      .udi-lifestyle:before {
+                        content: "\E6D9";
+                      }
+                      .udi-photography:before {
+                        content: "\E6F9";
+                      }
+                      .udi-health-and-fitness:before {
+                        content: "\E6C4";
+                      }
+                      .udi-music:before {
+                        content: "\E6E9";
+                      }
+                      .udi-academics:before {
+                        content: "\E693";
+                      }
+                    }
+
+                    .nav-link.dropdown-toggle {
+                      display: block;
+                      overflow: hidden;
+                      text-overflow: ellipsis;
+                      white-space: nowrap;
+                      max-width: 170px;
+                      flex-direction: row;
+                      align-items: center;
+                      border: 1px solid transparent;
+                      border-radius: 3px;
+                      font-weight: 400;
+                      height: 45px;
+                      line-height: 20px;
+                      padding: 12px 15px;
+                    }
+
+                    .first-lvl-menu {
+                      width: 270px;
+                      min-height: 430px;
+                      border: none;
+                      border-radius: 0;
+                      border-bottom-left-radius: 2px;
+                      border-top: 1px solid #e8e9eb;
+                      box-shadow: 0 4px 16px rgba(20, 23, 28, 0.25);
+                      color: #505763;
+                      font-size: 13px;
+                      margin: 0;
+                      position: absolute;
+                      top: 100%;
+                      left: 0;
+                      z-index: 1000;
+                      display: none;
+                      float: left;
+                      min-width: 160px;
+                      max-width: calc(100vw - 30px);
+                      list-style: none;
+                      text-align: left;
+                      background-color: #fff;
+                      background-clip: padding-box;
+                    }
+
+                    .first-lvl-menu::before,
+                    .first-lvl-menu::after {
+                      border-style: solid;
+                      border-width: 0 10px 13px;
+                      content: "" !important;
+                      height: 0;
+                      position: absolute;
+                      left: 14px;
+                      width: 0;
+                    }
+
+                    .first-lvl-menu:before {
+                      border-color: transparent transparent #e8e9eb transparent;
+                      top: -14px;
+                    }
+                    .first-lvl-menu:after {
+                      border-color: transparent transparent #fff transparent;
+                      top: -12px;
+                    }
+
+                    &:hover {
+                      .dropdown-toggle {
+                        color: rgba(0, 0, 0, 0.5);
+                        background: rgba(20, 23, 28, 0.05);
+                        border-color: rgba(20, 23, 28, 0.05);
+                      }
+                    }
+                  }
+                }
+
+                .dropdown-submenu {
+                  position: relative;
+                }
+                .dropdown-submenu > .dropdown-menu {
+                  top: 0;
+                  left: 100%;
+                  margin-top: -6px;
+                }
+
+                .dropdown {
+                  font-size: 13px;
+                  margin: 0 2px;
+                  padding: 10px 0;
+                  position: relative;
+
+                  .dropdown-toggle::after {
+                    content: none;
+                  }
+
+                  [role="button"] {
+                    cursor: pointer;
+                  }
+                  a {
+                    background-color: transparent;
+                    text-decoration: none;
+                  }
+                }
+
+                .navbar-search {
+                  flex-grow: 1;
+                  margin-left: 16px;
+                  margin-right: 16px;
+
+                  /* clears the 'X' from Internet Explorer */
+                  input[type="search"]::-ms-clear {
+                    display: none;
+                    width: 0;
+                    height: 0;
+                  }
+                  input[type="search"]::-ms-reveal {
+                    display: none;
+                    width: 0;
+                    height: 0;
+                  }
+
+                  /* clears the 'X' from Chrome */
+                  input[type="search"]::-webkit-search-decoration,
+                  input[type="search"]::-webkit-search-cancel-button,
+                  input[type="search"]::-webkit-search-results-button,
+                  input[type="search"]::-webkit-search-results-decoration {
+                    display: none;
+                  }
+
+                  input {
+                    font-size: 13px;
+                    &::placeholder {
+                      font-size: 13px;
+                    }
+                    &:focus {
+                      box-shadow: none;
+                      background: #fff;
+                      border: 1px solid #dedfe0;
+                      border-right-color: #fff;
+                      & ~ button {
+                        background: #fff;
+                        border: 1px solid #dedfe0;
+                        border-left: none;
+                      }
+                      & ~ button:hover {
+                        background-color: #ec5252;
+                        color: #fff;
+                        border: 1px solid #ec5252;
+                        border-left: none;
+                      }
+                    }
+                    height: 44px;
+                    border-radius: 0;
+                    border: 1px solid #f2f3f5;
+                    background: #f2f3f5;
+                    flex-grow: 1;
+                    margin-right: 0 !important;
+                  }
+                  button {
+                    border-radius: 0;
+                    width: 44px;
+                    height: 44px;
+                    border: none;
+                    font-size: 0.8rem;
+                    // color: #ec5252;
+                    background: #f2f3f5;
+                    &.btn {
+                      transition: none;
+                    }
+                    &:hover {
+                      background-color: #ec5252;
+                      color: #fff;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+
+        .navbar-content-right {
+          *:before,
+          *:after {
+            box-sizing: border-box;
+          }
+          width: 536px;
+          height: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: flex-end;
+
+          .dropdown:hover > .dropdown-menu {
+            display: block;
+          }
+
+          .dropdown--open-on-hover:hover .dropdown-toggle {
+            background: rgba(20, 23, 28, 0.05);
+            border-color: rgba(20, 23, 28, 0.05);
+          }
+
+          .dropdown--open-on-hover .dropdown-menu.dropdown-menu-right {
+            border-bottom-right-radius: 2px;
+            right: 0;
+          }
+
+          .dropdown--open-on-hover .dropdown-menu:before {
+            border-color: transparent transparent #e8e9eb transparent;
+            top: -14px;
+          }
+
+          .dropdown--open-on-hover .dropdown-menu:after {
+            border-color: transparent transparent #fff transparent;
+            top: -12px;
+          }
+
+          .dropdown--open-on-hover .dropdown-menu:before,
+          .dropdown--open-on-hover .dropdown-menu:after {
+            border-style: solid;
+            border-width: 0 10px 13px;
+            content: "" !important;
+            height: 0;
+            position: absolute;
+            left: 14px;
+            width: 0;
+          }
+
+          .dropdown--open-on-hover .dropdown-menu.dropdown-menu-right:before,
+          .dropdown--open-on-hover .dropdown-menu.dropdown-menu-right:after {
+            left: auto;
+            right: 14px;
+          }
+
+          .header-right-divider {
+            height: 60%;
+            border-left: 1px solid #dedfe0;
+            margin: 0 8px;
+          }
+
+          .visible-lg-block,
+          .visible-xl-block {
+            display: none !important;
+          }
+
+          @media screen and (min-width: 1440px) {
+            .visible-xl-block {
+              display: block !important;
+            }
+          }
+          .dropdown {
+            font-size: 13px;
+            margin: 0 2px;
+            padding: 10px 0;
+            position: relative;
+
+            a {
+              color: #007791;
+              background-color: transparent;
+              text-decoration: none;
+              background-color: transparent;
+              text-decoration: none;
+            }
+
+            .dropdown-toggle {
+              display: flex;
+              flex-direction: row;
+              align-items: center;
+              border: 1px solid transparent;
+              border-radius: 3px;
+              // color: #505763;
+              color: rgba(0, 0, 0, 0.5);
+              font-weight: 400;
+              height: 45px;
+              line-height: 20px;
+              padding: 12px 15px;
+              white-space: nowrap;
+              cursor: pointer;
+              &::after {
+                content: none;
+              }
+            }
+
+            .dropdown-menu {
+              font-size: 15px;
+              padding: 24px 16px;
+              text-align: center;
+              width: 330px;
+              border: none;
+              border-radius: 0;
+              border-bottom-left-radius: 2px;
+              border-top: 1px solid #e8e9eb;
+              box-shadow: 0 4px 16px rgba(20, 23, 28, 0.25);
+              color: #505763;
+              margin: 0;
+              position: absolute;
+              top: 100%;
+              z-index: 1000;
+              display: none;
+              float: left;
+              min-width: 160px;
+              max-width: calc(100vw - 30px);
+              list-style: none;
+              background-color: #fff;
+              background-clip: padding-box;
+            }
+
+            .dropdown-menu.dropdown-menu-right {
+              border-bottom-right-radius: 2px;
+              right: 0;
+              left: auto;
+
+              .mt-space-sm {
+                margin-top: 16px;
+                .semibold {
+                  font-weight: 600;
+                }
+                .a11 {
+                  line-height: 1.43;
+                  font-size: 13px;
+                }
+              }
+
+              .styles--sc-dropdown__empty-message--24wbn {
+                border-top: none;
+                text-align: center;
+                padding: 20px;
+
+                .styles--sc-dropdown__to-more--o3k3O {
+                  display: block;
+                  margin-top: 20px;
+                  text-align: center;
+                  font-weight: 600;
+                  font-size: 13px;
+                }
+              }
+            }
+          }
+
+          .dropdown--icon .dropdown-toggle {
+            border-radius: 50%;
+            padding: 12px 0;
+            width: 45px;
+
+            .pos-r {
+              position: relative;
+            }
+            .text-center {
+              text-align: center;
+              .sr-only {
+                position: absolute;
+                width: 1px;
+                height: 1px;
+                margin: -1px;
+                padding: 0;
+                overflow: hidden;
+                clip: rect(0, 0, 0, 0);
+                border: 0;
+              }
+
+              .dropdown__main-icon {
+                font-size: 20px;
+                color: #686f7a;
+                display: block;
+                padding: 0;
+              }
+              .udi {
+                vertical-align: -8%;
+                font-family: udemyicons !important;
+                speak: none;
+                font-style: normal;
+                font-weight: 400;
+                font-variant: normal;
+                text-transform: none;
+                line-height: 1;
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+              }
+              .udi-cart-line:before {
+                content: "\E91E";
+              }
+            }
+            .fx {
+              flex: 1;
+              min-width: 1px;
+            }
+          }
+
+          .dropdown--shopping-list .dropdown-menu {
+            width: 330px;
+            padding: 0;
+          }
+
+          .ml-space-sm {
+            margin-left: 16px;
+          }
+
+          button {
+            text-transform: none;
+            overflow: visible;
+            margin: 0;
+          }
+
+          .btn {
+            display: inline-block;
+            margin-bottom: 0;
+            font-weight: 600;
+            text-align: center;
+            vertical-align: middle;
+            touch-action: manipulation;
+            cursor: pointer;
+            background-image: none;
+            white-space: nowrap;
+            padding: 11px 12px;
+            font-size: 15px;
+            line-height: 1.35135;
+            border-radius: 2px;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+          }
+
+          .btn-quaternary {
+            color: #686f7a;
+            background-color: #fff;
+            border: 1px solid #686f7a;
+            &:hover {
+              color: #29303b;
+              background-color: #fff;
+              border-color: #29303b;
+            }
+          }
+
+          .btn-primary {
+            color: #fff;
+            background-color: #ec5252;
+            border: 1px solid transparent;
+            &:hover {
+              color: #fff;
+              background-color: #992337;
+              border-color: transparent;
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import Modal from "react-bootstrap/Modal";
+import LoginModal from "../LoginModal";
 
 function SignupModal(props) {
+  const [loginModalShow, setLoginModalShow] = useState(false);
   return (
     <div className="login-modal-dialog">
       <Modal {...props} size="lg" centered>
@@ -157,9 +159,14 @@ function SignupModal(props) {
               className="sign-link"
               href="/join/signup-popup/?display_type=popup&locale=en_US&next=https://www.udemy.com/&ref=&response_type=json&xref="
               data-purpose="sign-up"
+              onClick={() => setLoginModalShow(true)}
             >
               &nbsp;Log In
             </a>
+            <LoginModal
+              show={loginModalShow}
+              onHide={() => setLoginModalShow(false)}
+            />
           </div>
         </Modal.Footer>
       </Modal>

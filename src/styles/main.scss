@@ -2,7 +2,6 @@
 @import "./scss/helpers/variables";
 @import "./scss/helpers/mixins";
 @import "./scss/base/reset";
-
 /* --------------- layouts --------------- */
 // admin layout
 // @import "./scss/components/admin/sideBar";
@@ -19,3 +18,7 @@
 
 /* -------------- components ------------- */
 @import "./scss/components/customSearchBar";
+@import "./scss/components/singlecourse/singlecourse";
+/*------------------Vendors--------------*/ 
+@import "./scss/vendors/react-slick/slick";
+@import "./scss/vendors/react-slick/slickTheme";

@@ -25,13 +25,26 @@ export const getSearchField = searchField => {
 export const getSingleCourse = () => {
   return dispatch => {
     courseAPI
-      .get("/LayThongTinKhoaHoc?maKhoaHoc=111")
+      .get("/LayThongTinKhoaHoc?maKhoaHoc=")
       .then(res => {
         dispatch({
-          type:Types.GET_SINGLE_COURSE,
-          payload:res.data
+          type: Types.GET_COURSE_DETAILS,
+          payload: res.data
         });
       })
       .catch(err => console.log(err));
   };
 };
+export const getDetailCourseFromApi = (maKhoaHoc) => {
+  return dispatch => {
+    courseAPI
+      .get(`/LayThongTinKhoaHoc?maKhoaHoc=${maKhoaHoc}`)
+      .then(res => {
+        dispatch({
+          type: Types.GET_COURSE_DETAILS,
+          payload: res.data
+        });
+      })
+      .catch(err => console.log(err));
+  }
+}

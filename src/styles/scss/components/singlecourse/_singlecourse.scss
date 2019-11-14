@@ -1,0 +1,177 @@
+h3{
+    color: #29303b;
+    padding: 2% 0%;
+}
+.isActive{
+    display: none;
+}
+.nonActive{
+    display: block;
+}
+.myIcon{
+    align-self: flex-start;
+    color: #a1a7b3;
+    font-size: 20px;
+    margin-right: 15px;
+    margin-top: 2px;
+    font-weight: 400;
+}
+.nqhLayout{
+    font-size: 15px;
+    line-height: 1.5;
+    &_header{
+        background:linear-gradient(#29303B,#29303B,#29303B);
+        color: #fff;
+        &_main{
+            padding: 4% 0%;
+            &_nameCourse{
+                font-size: 36px;
+                margin-top: 2%;
+                margin-bottom: 1%;;
+                font-weight: 600;
+            }
+            &_description{
+                font-size: 21px;
+                line-height: 27px;
+            }
+            &_infor{
+                &_icon{
+                    margin-top: -6%;
+                    padding-bottom: 4%;
+                }
+
+
+            }
+        }
+        &_infor{
+            &_img{
+            padding: 2% 2%;
+            object-fit: cover;
+            max-height: 250px;
+            object-position: center;
+            border: solid #fff 5px;}
+
+        }
+
+    }
+    .fontIcon{
+        font-size: 35px;
+        font-weight: 400;
+    }
+    &_body{
+        &_Objectives{
+            margin: 5% 0%;
+            background-color: #f9f9f9;
+            border: 1px solid #dedfe0;
+            padding: 1% 2%;
+        }
+        &_Contents{
+            &_h3{
+                padding: 2% 0%;
+                line-height: 1.5;
+                color: #29303b
+            }
+            &_Title{
+                width: 100%;
+                align-items: center;
+                background: #f9f9f9;
+                border: solid 1px #e8e9eb;
+                cursor: pointer;
+                height: auto;
+                margin-top: 3px;
+                padding: 10px 30px 10px 22px;
+            }
+            &_Tagp{
+                padding: 12px 30px 12px 43px;
+                background-color: #fff;
+                border: 1px solid #e8e9eb;
+                border-top: none;
+                color: #686f7a;
+                letter-spacing: .5px;
+                line-height: 1.5;
+            }
+
+        }
+        .layout_Right{
+            margin-top: 10%;
+            border: solid transparent 1px;
+            padding: 15px 30px;
+            background-color: #fff;
+            box-shadow: 0 0 1px 1px rgba(20,23,28,.1), 0 3px 1px 0 rgba(20,23,28,.1);
+            border-radius: 4px;
+            color: #505763;
+            &_Top{
+                .btn{
+                    display: block;
+                    width: 100%;
+                    margin-bottom: 5%;
+                    padding: 5% 0;
+                }
+                .tag_h2{
+                    text-align: right;
+                    padding-top:2% ;
+                    padding-bottom: 5%;
+                }
+                &_Waranty{
+                    span{
+                        display: block;
+                        font-size: 12px;
+                        font-weight: 400;
+                        margin-bottom: 5%;
+                        margin-top: 5%;
+                        text-align: center;
+                    }
+                }
+                &_Infor{
+                    span{
+                        display: block;
+                        font-size: 13px;
+                        font-weight: 400;
+                        margin-bottom: 3%;
+                        margin-top: 3%;
+                        text-align: left;
+                    }
+                    &_Span{
+                        .Icon{
+                            margin-right: 2%;
+                        }
+                    }
+                }
+                .myHr{
+                    margin: 5% 0%;
+                }
+                .shareInfor{
+                    cursor: pointer;
+                    text-align: center;
+                    color: #007791;
+                    font-size: 20px;
+                    font-weight: 400;
+                    .Icon{
+                        margin-right: 2%;
+                    }
+                }
+
+            }
+            &_Bottom{
+                color:#505763;
+                font-size: 15px;
+                h2{
+                    font-weight: 600;
+                    font-size: 25px;
+                    padding-bottom: 5%;
+                }
+                .business{
+                    color: #007791;
+                    font-weight: 600;
+                    cursor: pointer;
+                }
+            }
+            
+
+            
+
+            
+        }
+    }
+    
+}

@@ -4,6 +4,7 @@ import { combineReducers } from "redux";
 import { courseListReducer } from "./courseReducers/courseListReducer";
 import { searchReducer } from "./searchReducer";
 import { course } from "./courseReducers/courseReducer";
+import {courseDetailReducer} from './courseReducers/courseDetailReducer';
 // NOTE: import all defined reducers here,
 // then provide them to store via combineReducers
 // method
@@ -12,6 +13,7 @@ import { course } from "./courseReducers/courseReducer";
 const rootReducer = combineReducers({
   courseList: courseListReducer,
   course:course,
+  courseDetail:courseDetailReducer,
   searchField: searchReducer
 });
 

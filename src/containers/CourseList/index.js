@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Container, Row, Col } from 'reactstrap';
+import Slider from "react-slick";
 
 import { connect } from "react-redux";
 import { getCourseList } from "../../actions/course/courseActions";
@@ -16,6 +17,15 @@ class CourseList extends Component {
   }
 
   render() {
+    const settings = {
+      dots: true,
+      infinite: true,
+      speed: 500,
+      autoplay: true,
+      autoplaySpeed: 2000,
+      slidesToShow: 3,
+      slidesToScroll: 3
+    };
     const { courses } = this.props;
     const courseItem = courses.map((course, idx) => {
       return <CourseItem key={idx} course={course} index={idx} />;
@@ -23,8 +33,10 @@ class CourseList extends Component {
     return (
       <div className="">
         <h3>Students are viewing</h3>
-        <div className="col-auto d-flex flex-wrap justify-content-center align-items-around py-2">
-          <Row> {courseItem}  </Row>
+        <div className="">
+          <Slider {...settings}>
+            {courseItem}
+          </Slider>
         </div>
       </div>
 

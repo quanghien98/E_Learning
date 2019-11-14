@@ -1,6 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
+// import "./../node_modules/slick-carousel/slick/slick.css";
+// import "./../node_modules/slick-carousel/slick/slick-theme.css";
+import "../node_modules/slick-carousel/slick/slick.scss";
+import "../node_modules/slick-carousel/slick/slick-theme.scss"; 
+import "slick-carousel/slick/slick-theme.css";
+
 import * as serviceWorker from "./serviceWorker";
 
 /* ------------- redux store ------------- */

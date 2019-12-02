@@ -1,0 +1,242 @@
+.admin {
+  &__sidebar {
+    grid-area: sidebar;
+    background: $color-primary;
+    grid-template-rows: minmax(120px, auto) 1fr;
+    display: grid;
+    max-width: 300px;
+    width: 280px;
+    padding-left: $padding-1;
+    transition: 0.2s all ease;
+  }
+}
+.admin__sidebar {
+  &__header {
+    position: relative;
+    max-height: 120px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    &::after {
+      position: absolute;
+      bottom: 16px;
+      content: "";
+      height: 2px;
+      width: 80%;
+      background: $color-secondary-light;
+    }
+
+    img {
+      max-height: 60px;
+      width: auto;
+      transition: 0.5s all ease-in-out;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+  &__menu {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    grid-template-columns: auto;
+    .menuToggleBtn {
+      background: $color-secondary-dark !important;
+      border: 2px solid $color-secondary-dark;
+      align-self: center;
+      grid-column: 1;
+      grid-row: 1;
+      justify-self: left;
+      padding: $padding-1 padding-4;
+      margin-top: $margin-1;
+      margin-bottom: $margin-2;
+      &:hover {
+        background: $color-primary-darker !important;
+        border: 2px solid $color-primary-darker !important;
+        color: $color-text-black;
+      }
+    }
+    .menuWrapper {
+      display: flex;
+      flex-direction: column;
+      // padding-right: $padding-2;
+      .sideNavItem {
+        position: relative;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        padding: $padding-1 $padding-0;
+        &::after {
+          content: "";
+          position: absolute;
+          right: 0;
+          top: 0;
+          transform: translateX(50%);
+          z-index: 10;
+          height: 100%;
+          width: 0;
+          background: $color-primary-dark;
+        }
+        &__btn {
+          padding-right: $padding-2;
+          margin-right: $margin-2;
+          border-radius: 50%;
+          height: 50px;
+          width: 50px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          .sideNavBtn__icon {
+            color: $color-text-black;
+            font-size: $font-size-lg;
+          }
+        }
+        &__navLink {
+          color: $color-text-black;
+          list-style: none;
+          text-transform: uppercase;
+        }
+      }
+
+      .sideNavItem.active {
+        background: $color-primary-dark;
+        // border: 1px solid $color-primary-darker;
+        border-left: 0;
+        border-right: 0;
+
+        // transition: 0.3 all ease;
+      }
+      .active.sideNavItem::after {
+        width: 1px;
+      }
+
+      .sideNavItem:hover,
+      .sideNavItem.active {
+        .sideNavBtn__icon,
+        .sideNavItem__navLink {
+          color: $color-secondary-dark;
+        }
+      }
+    }
+  }
+
+  .sideNav__wrapper {
+    grid-column: 2;
+    display: grid;
+    grid-template-rows: subgrid;
+    grid-row: 2 / span 4;
+    // grid-row: 2;
+    align-items: center;
+    transition: 0.3s all ease;
+  }
+}
+
+.shrunk {
+  display: grid;
+  width: 80px;
+  overflow: hidden;
+  background: $color-secondary-light;
+  // padding-left: 0;
+  transition: 0.2s all ease;
+}
+.shrunk {
+  .sideNavItem.active {
+    background: none !important;
+    border: none !important;
+    .sideNavItem__btn {
+      background: $color-primary !important;
+      .sideNavBtn__icon {
+        color: $color-secondary-dark !important;
+      }
+    }
+  }
+}
+// the followng settings help dimissing nav-text
+// sections when shrunk, showing nav-icons instead
+.admin__sidebar.shrunk {
+  .admin__sidebar__menu {
+    .sideNavItem {
+      &__navLink {
+        display: none;
+      }
+      &__btn {
+        .sideNavBtn__icon {
+          color: $color-text-white;
+        }
+      }
+    }
+    .sideNavItem:hover {
+      .sideNavBtn__icon {
+        color: $color-secondary-dark;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .admin {
+    &__sidebar {
+      grid-area: topNav;
+      padding: $padding-1;
+      max-width: 100vw;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      overflow-x: auto;
+      background: $color-primary;
+
+      &__header {
+        background: $color-primary;
+        align-self: center;
+        &::after {
+          display: none;
+        }
+      }
+      &__menu {
+        display: block;
+        .menuWrapper {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          .sideNavItem {
+            .sideNavItem__navLink {
+              position: relative;
+              cursor: pointer;
+            }
+            .sideNavItem__navLink::after {
+              content: "";
+              position: absolute;
+              bottom: 0;
+              left: 0;
+              height: 3px;
+              width: 0;
+              background: $color-secondary-dark;
+              transition: all 0.3s ease;
+            }
+            .sideNavItem__navLink:hover::after {
+              width: 100%;
+            }
+          }
+          .active.sideNavItem {
+            background: none;
+            border: none;
+            .sideNavItem__navLink::after {
+              width: 100%;
+            }
+          }
+
+          overflow-x: auto;
+          .sideNavItem__btn {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+  .shrunk,
+  .menuToggleBtn {
+    display: none;
+  }
+  // .admin__sidebar__menu .sideNav__wrapper {
+  //   display: flex;
+  // }
+}

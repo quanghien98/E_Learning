@@ -1,4 +1,8 @@
 import React, { Component } from "react";
+import { withRouter } from "react-router-dom";
+import { connect } from "react-redux";
+
+import siteLogo from "../../../images/logo_transparent.png";
 import {
   Collapse,
   Navbar,
@@ -7,11 +11,9 @@ import {
   NavItem,
   Container
 } from "reactstrap";
+
 import { NavLink } from "react-router-dom";
 import SearchBox from "../../SearchBox";
-// import SearchBar from "../../SearchBar";
-import { withRouter } from "react-router-dom";
-import { connect } from "react-redux";
 import { getSearchField } from "../../../actions/course/courseActions";
 
 class NavBar extends Component {
@@ -47,11 +49,25 @@ class NavBar extends Component {
 
   render() {
     const { handleSearchChange } = this.props;
+    const currentRoute = "/admin";
+    if (this.props.location.pathname === currentRoute) {
+      return null;
+    }
     return (
       <Navbar light expand="md" className="draftNavBar">
         <Container fluid>
           <NavLink to="/" className="navbar-brand">
-            Codemy
+            <img
+              alt="Codemy"
+              src={siteLogo}
+              style={{
+                width: "auto",
+                height: 50,
+                objectFit: "cover",
+                objectPosition: "center",
+                paddingRight: 16
+              }}
+            />
           </NavLink>
           <NavbarToggler onClick={this.toggleNavbar} />
           <Collapse isOpen={this.state.isOpen} navbar>

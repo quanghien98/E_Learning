@@ -1,5 +1,4 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
+import React, { Component, Fragment } from "react";
 
 import { Pagination, PaginationItem, PaginationLink } from "reactstrap";
 
@@ -33,7 +32,7 @@ class ListPagination extends Component {
 
   render() {
     if (this.props.totalItems === 0) {
-      return null;
+      return <Fragment />;
     }
     return (
       <>

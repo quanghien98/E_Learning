@@ -1,10 +1,51 @@
-import React from "react";
+import React, { Component } from "react";
+// import { BrowserRouter as Router, Route } from "react-router-dom";
 
-const Admin = props => {
-  return (
-    <div>
-      <h1>Home Page</h1>
-    </div>
-  );
-};
+import AdminSidebar from "../components/layouts/AdminSidebar";
+import AdminDasboard from "../containers/Admin/AdminDashboard";
+import { AdminTopBar } from "../components/layouts/AdminTopBar";
+import AdminProfile from "../containers/Admin/AdminProfile";
+import CourseManagement from "../containers/Admin/CourseManagement";
+
+class Admin extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      activeTab: "profile"
+    };
+  }
+
+  getActiveTab = name => {
+    this.setState({
+      activeTab: name
+    });
+  };
+  render() {
+    const currentTab = () => {
+      if (this.state.activeTab === "dashboard") {
+        return <AdminDasboard />;
+      } else if (this.state.activeTab === "profile") {
+        return <AdminProfile />;
+      } else if (this.state.activeTab === "courses") {
+        return <CourseManagement />;
+      }
+      return (
+        <h1 style={{ textTransform: "capitalize" }}>{this.state.activeTab}</h1>
+      );
+    };
+
+    return (
+      <div className="admin">
+        <AdminSidebar activeTab={this.getActiveTab} />
+        <main className="admin__main">
+          <AdminTopBar currentTab={this.state.activeTab} />
+          {currentTab()}
+        </main>
+        <footer className="admin__footer">footer</footer>
+      </div>
+    );
+  }
+}
+
 export default Admin;

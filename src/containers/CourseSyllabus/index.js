@@ -81,7 +81,7 @@ class CourseSyllabus extends Component {
               />
             </div>
           </aside>
-          <div className="courseSyllabus__main">
+          <main className="courseSyllabus__main">
             <div className="courseSyllabus__main__video">
               <iframe
                 width="700"
@@ -93,7 +93,7 @@ class CourseSyllabus extends Component {
                 allowFullScreen
               ></iframe>
             </div>
-          </div>
+          </main>
         </div>
       </>
     );

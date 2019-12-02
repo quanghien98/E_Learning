@@ -97,8 +97,8 @@ class CoursesByCategory extends Component {
     this.props.getCategorizedCourses(categoryId);
   }
   render() {
-    const string = this.getLastStringFromPath();
-    const id = this.getCategoryId(string);
+    // const string = this.getLastStringFromPath();
+    // const id = this.getCategoryId(string);
     const categoryName = this.getCategoryName(this.lastStringFromPath);
     const dropdowns = ["Highest rated", "Newest", "Most picked"];
 

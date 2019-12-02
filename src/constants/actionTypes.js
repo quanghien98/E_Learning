@@ -1,5 +1,6 @@
 /* -------- courses's action types ------- */
 export const GET_COURSES = "GET_COURSES";
+export const SELECT_COURSE = "SELECT_COURSE";
 export const GET_COURSE_DETAILS = "GET_COURSE_DETAILS";
 export const GET_SEARCH_FIELD = "GET_SEARCH_FIELD";
 export const GET_COURSES_BY_CATEGORY = "GET_COURSES_BY_CATEGORY";

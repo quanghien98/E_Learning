@@ -178,3 +178,10 @@
   width: 100%;
   background-color: rgba(0, 0, 0, $opacity);
 }
+
+/* --------- admin grid template --------- */
+@mixin admin-grid-layout($rowNum: 1fr, $columnNum: 1fr, $gap: 8px) {
+  grid-template-rows: $rowNum;
+  grid-template-columns: $columnNum;
+  gap: $gap;
+}

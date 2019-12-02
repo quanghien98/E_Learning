@@ -1,0 +1,54 @@
+.adminCourses {
+  .adminContainer {
+    @include admin-grid-layout(auto auto, 1fr, 8px 0);
+    grid-template-areas:
+      "course-list"
+      "course-item";
+  }
+}
+
+.adminCourses {
+  // overflow-x: auto;
+
+  &__list,
+  &__item {
+    padding: $padding-2;
+    grid-area: course-list;
+    height: 100%;
+    overflow: auto;
+    /*     &__tableWrapper {
+      box-shadow: $shadow-1;
+      min-height: 390px;
+    }
+    .tableWrapper__body {
+      padding: $padding-0 !important;
+    }
+    .tableWrapper__title {
+      font-size: $font-size-lg;
+      padding: $padding-1;
+    }
+ */
+  }
+  .list__wrapper,
+  .item__wrapper {
+    box-shadow: $shadow-1;
+    min-height: 390px;
+    .wrapper__title {
+      font-size: $font-size-lg;
+      padding: $padding-1;
+    }
+  }
+
+  &__item {
+    grid-area: course-item;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr minmax(auto, 1fr);
+    gap: 0 16px;
+    @media only screen and (max-width: 960px) {
+      grid-template-columns: 1fr;
+      grid-template-rows: auto auto;
+      row-gap: 32px;
+    }
+  }
+}

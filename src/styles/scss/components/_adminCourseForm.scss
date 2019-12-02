@@ -1,0 +1,49 @@
+.adminCourses {
+  .adminCourses__item {
+    .item__wrapper {
+      .wrapper__title {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      /*       .wrapper__body {
+        display: grid;
+        grid-template-columns: 1fr minmax(auto, 700px);
+        grid-template-areas: "form waiting-list";
+        gap: 0 16px;
+        @media only screen and (max-width: 1200px) {
+          grid-template-columns: 1fr;
+          grid-template-rows: auto auto;
+          grid-template-areas:
+            "form"
+            "waiting-list";
+        }
+      }
+ */
+    }
+    &__form {
+      grid-area: form;
+      display: grid !important;
+      gap: 16px 8px;
+      grid-template-columns: 1fr;
+      // grid-auto-flow: dense;
+      grid-template-rows: repeat(auto);
+      align-items: flex-start;
+      grid-auto-flow: row;
+      &__form__imgPreview {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+      }
+      @media only screen and (max-width: 480px) {
+        grid-template-columns: 1fr;
+      }
+    }
+    /*  &__waitingList {
+      grid-area: waiting-list;
+      table {
+        margin-top: $margin-4;
+      }
+    } */
+  }
+}

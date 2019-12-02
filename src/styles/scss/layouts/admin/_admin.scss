@@ -1,0 +1,58 @@
+.admin {
+  // overflow: hidden;
+  // padding-top: $padding-2;
+  position: relative;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: 1fr 8vh;
+  // gap: $margin-1 $margin-2;
+  grid-template-areas:
+    "sidebar main"
+    "sidebar footer";
+  min-height: 100vh;
+
+  &__main {
+    grid-area: main;
+    background: $color-primary-dark;
+    // border: 1px solid $color-primary-darker;
+    // padding: $padding-2;
+  }
+  &__footer {
+    grid-area: footer;
+    background: $color-primary;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .admin {
+    grid-template-areas:
+      "topNav"
+      "main"
+      "footer";
+    grid-template-columns: auto;
+    grid-template-rows: auto 1fr auto;
+    &__main {
+      width: 100vw;
+    }
+  }
+}
+
+.adminContainer {
+  display: grid;
+  min-height: 810px;
+  justify-content: center;
+  align-items: center;
+  @include admin-grid-layout(1fr, 1fr, 0);
+}
+
+.adminDashboard,
+.adminProfile,
+.adminCourses,
+.adminUsers {
+  // margin-top: $margin-2;
+  // width: 100%;
+  height: auto;
+  background: $color-primary;
+  border-radius: $radius-lg;
+  margin: $margin-2;
+}

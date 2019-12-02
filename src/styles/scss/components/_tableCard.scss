@@ -1,0 +1,36 @@
+.list {
+  &__wrapper {
+    .wrapper__body {
+      padding: $padding-0 $padding-4;
+      min-height: 312px;
+
+      .list__table {
+        table-layout: fixed;
+        width: 100%;
+        min-width: 400px;
+
+        thead {
+          th {
+            // border-top: none;
+            background: $color-primary-dark;
+          }
+        }
+        td {
+          @include text-shorten();
+        }
+        tbody {
+          tr {
+            cursor: pointer;
+          }
+        }
+      }
+      @media only screen and (max-width: 480px) {
+        padding: $padding-0;
+        // overflow-x: scroll;
+        .list__table {
+          width: 480px;
+        }
+      }
+    }
+  }
+}

@@ -12,12 +12,12 @@
 
 // @import "./scss/layouts/mainLayout";
 
-// Home layout
+/* ----------------- Home ---------------- */
 @import "./scss/layouts/home/drafts/draftNavBar";
 @import "./scss/layouts/home/drafts/draftHeroImage";
 @import "./scss/layouts/home/footer";
 
-/* -------------- components ------------- */
+/* ----------- Home components ----------- */
 @import "./scss/components/gradientHeader";
 @import "./scss/components/customSearchBar";
 @import "./scss/components/comment";
@@ -29,3 +29,16 @@
 @import "./scss/components/courseSyllabus";
 @import "./scss/components/lessonListGroup";
 @import "./scss/components/lessonNavigation";
+
+/* ---------------- Admin ---------------- */
+@import "./scss/layouts/admin/admin";
+@import "./scss/layouts/admin/adminTopBar";
+@import "./scss/layouts/admin/adminSidebar";
+@import "./scss/layouts/admin/adminDashboard";
+@import "./scss/layouts/admin/adminProfile";
+@import "./scss/layouts/admin/adminCourses";
+
+/* ----------- Admin components ---------- */
+@import "./scss/components/componentBeingBuilt";
+@import "./scss/components/tableCard";
+@import "./scss/components/adminCourseForm";

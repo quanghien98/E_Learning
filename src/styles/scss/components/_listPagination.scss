@@ -57,3 +57,10 @@
     }
   }
 }
+@media only screen and (max-width: 720px) {
+  .listPagination {
+    &__item {
+      transform: scale(0.6);
+    }
+  }
+}

@@ -1,16 +1,15 @@
-/* ---------------- utils ---------------- */
+/* --------------------------------------- */
+/*                  utils                  */
+/* --------------------------------------- */
+
 @import "./scss/helpers/variables";
 @import "./scss/helpers/mixins";
 @import "./scss/base/reset";
 @import "./scss//vendors/bootstrap";
-/* --------------- layouts --------------- */
-// admin layout
-// @import "./scss/components/admin/sideBar";
-// @import "./scss/components/admin/dashboard";
-// @import "./scss/components/admin/courseManagement";
-// @import "./scss/components/admin/userManagement";
 
-// @import "./scss/layouts/mainLayout";
+/* --------------------------------------- */
+/*                 layouts                 */
+/* --------------------------------------- */
 
 /* ----------------- Home ---------------- */
 @import "./scss/layouts/home/drafts/draftNavBar";
@@ -34,9 +33,10 @@
 @import "./scss/layouts/admin/admin";
 @import "./scss/layouts/admin/adminTopBar";
 @import "./scss/layouts/admin/adminSidebar";
-@import "./scss/layouts/admin/adminDashboard";
+@import "./scss/layouts/admin/adminEnrollment";
 @import "./scss/layouts/admin/adminProfile";
 @import "./scss/layouts/admin/adminCourses";
+@import "./scss/layouts/admin/adminUsers";
 
 /* ----------- Admin components ---------- */
 @import "./scss/components/componentBeingBuilt";

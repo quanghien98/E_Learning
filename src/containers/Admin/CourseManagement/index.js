@@ -23,9 +23,32 @@ class CourseManagement extends Component {
       sortedBy: "name",
       currentItems: [],
       selectedCourseId: "",
-      defaultCourseId: "111"
+      defaultCourseId: "111",
+      isAdding: false
+      // isEditing: false
     };
   }
+
+  setAdding = stat => {
+    const isAdding = stat;
+    this.setState({
+      isAdding
+    });
+  };
+
+  // setEditing = stat => {
+  //   const isEditing = stat;
+  //   this.setState({
+  //     isEditing
+  //   });
+  // };
+
+  selectCourse = () => {
+    const isAdding = false;
+    this.setState({
+      isAdding
+    });
+  };
 
   setSelectedCourseId = id => {
     let selectedCourseId = id;
@@ -61,12 +84,12 @@ class CourseManagement extends Component {
     this.props.getCourseList();
   }
 
-  // 1. make sure that a default id is passed to get course details
+  // NOTE: make sure that a default id is passed to get course details
 
   render() {
-    console.log(this.state.selectedCourseId);
+    // console.log(this.state.selectedCourseId);
 
-    // NOTE passing table data to <CardTable/> component 
+    // NOTE passing table data to <CardTable/> component
     // via headings and rows
     const courseHeadings = [
       "id",
@@ -98,7 +121,6 @@ class CourseManagement extends Component {
         <div className="adminContainer">
           <div className="adminCourses__list">
             <TableCard
-              // isCourseTable={this.state.isCourseTable}
               tableTitle={"Course List"}
               paginate={this.setCurrentPage}
               totalItems={this.props.courses.length}
@@ -107,10 +129,15 @@ class CourseManagement extends Component {
               rows={courseRows}
               headings={courseHeadings}
               requestCourseDetails={this.props.requestCourseDetails}
+              selectCourse={this.selectCourse}
+              isAdding={this.state.isAdding}
             />
           </div>
           <div className="adminCourses__item">
-            <AdminCourseForm />
+            <AdminCourseForm
+              setAdding={this.setAdding}
+              isAdding={this.state.isAdding}
+            />
             {waitingListRows.length === 0 ? (
               <>
                 <TableCard
@@ -118,7 +145,7 @@ class CourseManagement extends Component {
                   optionalDes={
                     "This course is currently not in any student's waiting list"
                   }
-                ></TableCard>
+                />
               </>
             ) : (
               <TableCard
@@ -154,4 +181,7 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(CourseManagement);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(CourseManagement);

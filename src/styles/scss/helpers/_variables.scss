@@ -12,8 +12,8 @@
 $background-base:          rgb(236,82,159);
 $background-gradient: 
 linear-gradient(                  115deg, 
-                 rgba(236,82,159,1) 0%, 
-                 rgba(236,82,82,1) 64%,
+                rgba(236,82,159,1) 0%, 
+                rgba(236,82,82,1) 64%,
                 rgba(236,159,82,1) 100%
               );
 
@@ -28,7 +28,7 @@ $color-secondary-light:        #ff857e;
 $color-secondary-dark:         #b31729;
 
 // text
-$color-text-black:             #000000;
+$color-text-black:             #131516;
 $color-text-white:             #ffffff;
 $color-text-grey:              #686f7a;
 
@@ -146,4 +146,4 @@ $font-size-5xl:                    80px;
 $font-weight-thin:                  300;
 $font-weight-regular:               400;
 $font-weight-bold:                  700;
-$font-weight-super-bold:            800;
+$font-weight-super-bold:             800;

@@ -1,4 +1,5 @@
 import React from "react";
+import { connect } from "react-redux";
 import { Card, CardTitle, CardBody, Table } from "reactstrap";
 import ListPagination from "../ListPagination";
 // import { requestCourseDetails } from "../../actions/course/courseActions";
@@ -12,9 +13,27 @@ const TableCard = props => {
     itemsPerPage,
     rows,
     headings,
+    // isAdding,
     optionalDes,
-    requestCourseDetails
+    requestCourseDetails,
+    selectCourse
   } = props;
+
+  const setSelectedCourse = course => {
+    selectCourse();
+    requestCourseDetails(course);
+  };
+
+  const selectedRowStyle = selectedItemId => {
+    let id = props.courseDetails.maKhoaHoc;
+    let isAdding = props.isAdding;
+    if (!isAdding && selectedItemId === id) {
+      return { background: "#ff857e" };
+    } else {
+      return undefined;
+    }
+  };
+
   return (
     <Card className="list__wrapper">
       <CardTitle className="wrapper__title">{tableTitle}</CardTitle>
@@ -40,8 +59,9 @@ const TableCard = props => {
               rows.map(item => {
                 return (
                   <tr
+                    style={selectedRowStyle(item.col1)}
                     key={item.col1}
-                    onClick={() => requestCourseDetails(item.col1)}
+                    onClick={() => setSelectedCourse(item.col1)}
                   >
                     <td>{item.col1}</td>
                     <td>{item.col2}</td>
@@ -71,4 +91,10 @@ const TableCard = props => {
     // NOTE: since pagination is optional, it returns undefined as paginate is not passed from parent component(s)
   );
 };
-export default TableCard;
+
+const mapStateToProps = state => {
+  return {
+    courseDetails: state.courseDetails
+  };
+};
+export default connect(mapStateToProps)(TableCard);

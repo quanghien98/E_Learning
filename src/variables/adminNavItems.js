@@ -1,8 +1,8 @@
 export const navItems = [
   {
     id: "nav01",
-    name: "dashboard",
-    icon: "dashboard"
+    name: "enrollment",
+    icon: "class"
   },
   {
     id: "nav02",

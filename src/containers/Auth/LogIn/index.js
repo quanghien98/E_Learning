@@ -1,6 +1,6 @@
-import React from "react";
-
-import { withFormik, Form, Field } from "formik";
+import React, { Component } from "react";
+import { signIn } from "../../../actions/user/userActions";
+// import { withFormik, Form, Field } from "formik";
 // import Yup from "yup";
 
 import {
@@ -10,6 +10,7 @@ import {
   CardTitle,
   CardBody,
   FormGroup,
+  Input,
   // FormFeedback,
   Label,
   // Input,
@@ -24,54 +25,69 @@ const fieldStyle = {
   width: "100%"
 };
 
-const LogIn = () => {
-  return (
-    <Container>
-      <Card style={cardStyle}>
-        <CardHeader>
-          <CardTitle>
-            <h5>Log In</h5>
-          </CardTitle>
-        </CardHeader>
-        <CardBody>
-          <Form>
-            <FormGroup>
-              <Label for="userName">Username:</Label>
-              <Field
-                style={fieldStyle}
-                type="text"
-                name="userName"
-                id="userName"
-              />
-            </FormGroup>
-            <FormGroup>
-              <Label for="password">Password:</Label>
-              <Field
-                style={fieldStyle}
-                type="password"
-                name="password"
-                id="password"
-              />
-            </FormGroup>
-            <Button type="submit" color="success">
-              Log In
-            </Button>
-          </Form>
-        </CardBody>
-      </Card>
-    </Container>
-  );
-};
+class LogIn extends Component {
+  constructor(props) {
+    super(props);
 
-const FormikApp = withFormik({
-  mapPropsToValues() {
-    return {
-      userName: "",
-      password: ""
+    this.state = {
+      taiKhoan: "",
+      matKhau: ""
     };
-  },
-  handleSubmit(values) {
-    console.log(values);
   }
-})(LogIn);
-export default FormikApp;
+
+  /* --------------- methods --------------- */
+  handleInputChange = event => {
+    this.setState({
+      [event.target.name]: event.target.value
+    });
+  };
+  handleSubmit = () => {
+    let userData = this.state;
+    signIn(userData, () => {
+      alert("Logged in");
+    });
+  };
+
+  render() {
+    return (
+      <Container>
+        <Card style={cardStyle}>
+          <CardHeader>
+            <CardTitle>
+              <h5>Log In</h5>
+            </CardTitle>
+          </CardHeader>
+          <CardBody>
+            <>
+              <FormGroup>
+                <Label for="taiKhoan">Account:</Label>
+                <Input
+                  style={fieldStyle}
+                  type="text"
+                  name="taiKhoan"
+                  id="taiKhoan"
+                  onChange={this.handleInputChange}
+                />
+              </FormGroup>
+              <FormGroup>
+                <Label for="matKhau">Password:</Label>
+                <Input
+                  style={fieldStyle}
+                  type="password"
+                  name="matKhau"
+                  id="matKhau"
+                  onChange={this.handleInputChange}
+                />
+              </FormGroup>
+              <Button type="submit" color="success" onClick={this.handleSubmit}>
+                Log In
+              </Button>
+            </>
+          </CardBody>
+        </Card>
+      </Container>
+    );
+  }
+}
+
+export default LogIn;

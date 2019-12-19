@@ -65,6 +65,7 @@ class AdminSidebar extends Component {
         </header>
 
         <div className="admin__sidebar__menu">
+          {/* responsive */}
           {window.innerWidth <= 960 ? (
             <Button className="menuToggleBtn" onClick={this.handleShrink}>
               <Icon>menu_open</Icon>

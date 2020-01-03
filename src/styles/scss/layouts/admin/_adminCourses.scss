@@ -2,8 +2,8 @@
   .adminContainer {
     @include admin-grid-layout(auto auto, 1fr, 8px 0);
     grid-template-areas:
-      "course-list"
-      "course-item";
+      "list"
+      "item";
   }
 }
 
@@ -13,7 +13,7 @@
   &__list,
   &__item {
     padding: $padding-2;
-    grid-area: course-list;
+    // grid-area: list;
     height: 100%;
     overflow: auto;
     /*     &__tableWrapper {
@@ -37,13 +37,17 @@
       font-size: $font-size-lg;
       padding: $padding-1;
     }
+    .wrapper__body {
+      overflow: auto ;
+    }
   }
 
   &__item {
-    grid-area: course-item;
+    grid-area: item;
     height: 100%;
     display: grid;
     grid-template-columns: 1fr minmax(auto, 1fr);
+    grid-template-rows: minmax(auto,600px);
     gap: 0 16px;
     @media only screen and (max-width: 960px) {
       grid-template-columns: 1fr;

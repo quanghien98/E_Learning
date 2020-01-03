@@ -8,31 +8,21 @@ export const validateUrl = urlString => {
   return error;
 };
 
-export const validateStringLength = inputString => {
+export const validateStringLength = (inputString, maxLength) => {
   let error = "";
-  if (inputString.length < 3 || inputString.length > 200) {
-    error = "Invalid input. The text is either too short or too long";
+  if (inputString.length <= 3 || inputString.length > maxLength) {
+    error = `Invalid input. The text should be at least 3 characters and should not exceed ${maxLength} characters.`;
     return error;
   } else if (inputString.length === 0) {
     error = "Field cannot be left blank";
     return error;
+  } else {
+    return "";
   }
-};
-
-export const validateId = id => {
-  let error = "";
-  let idValidator = /[^\w-]/g;
-  if (id.match(idValidator)) {
-    error = `Invalid ID. ID must not contain any white space and non-word characters except hyphen (-) and/or underscore(_)`;
-    return error;
-  }
-  return error;
 };
 
 export const validateEmail = email => {
   let error = "";
-  /* let oriEmailValidator = /^(([^<>()\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/; */
-
   let emailValidator = /^(([^<>()\]\\.,;:\s@"]+(\.[^<>()\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   if (!email.match(emailValidator)) {
     error = "Invalid email address.";

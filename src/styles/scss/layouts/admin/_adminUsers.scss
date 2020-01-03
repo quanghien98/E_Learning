@@ -1,0 +1,56 @@
+.adminUsers {
+  .adminContainer {
+    @include admin-grid-layout(1fr, 1fr minmax(auto, 0.5fr), 0 8px);
+    grid-template-areas: "list item";
+    @media only screen and (max-width: 960px) {
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr auto;
+      grid-template-areas:
+        "list"
+        "item";
+      row-gap: 8px 0;
+    }
+  }
+}
+
+.adminUsers {
+  // overflow-x: auto;
+
+  &__list,
+  &__item {
+    padding: $padding-2;
+    // grid-area: list;
+    height: 100%;
+    overflow: auto;
+    /*     &__tableWrapper {
+      box-shadow: $shadow-1;
+      min-height: 390px;
+    }
+    .tableWrapper__body {
+      padding: $padding-0 !important;
+    }
+    .tableWrapper__title {
+      font-size: $font-size-lg;
+      padding: $padding-1;
+    }
+ */
+  }
+  .list__wrapper,
+  .item__wrapper {
+    box-shadow: $shadow-1;
+    min-height: 390px;
+    height: 100%;
+    .wrapper__title {
+      font-size: $font-size-lg;
+      padding: $padding-1;
+    }
+  }
+
+  &__item {
+    grid-area: item;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0 16px;
+  }
+}

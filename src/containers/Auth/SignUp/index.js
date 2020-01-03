@@ -1,7 +1,9 @@
 import React, { Component } from "react";
-import { signIn } from "../../../actions/user/userActions";
+// import { signIn } from "../../../actions/user/userActions";
 // import { withFormik, Form, Field } from "formik";
 // import Yup from "yup";
+
+import Background from "../../../components/layouts/Background";
 
 import {
   Container,
@@ -17,12 +19,17 @@ import {
   Button
 } from "reactstrap";
 
+const cardStyle = {
+  width: 480,
+  margin: "auto",
+  marginTop: 48
+};
 const fieldStyle = {
   display: "block",
   width: "100%"
 };
 
-class LogIn extends Component {
+class SignUp extends Component {
   constructor(props) {
     super(props);
 
@@ -39,19 +46,20 @@ class LogIn extends Component {
     });
   };
   handleSubmit = () => {
-    let userData = this.state;
-    signIn(userData, () => {
-      alert("Logged in");
-    });
+    // let userData = this.state;
+    // signIn(userData, () => {
+    //   alert("Logged in");
+    // });
   };
 
   render() {
     return (
       <Container>
-        <Card className="logIn">
+        <Background />
+        <Card className="signUp">
           <CardHeader>
             <CardTitle>
-              <h5>Log In</h5>
+              <h5>Sign Up</h5>
             </CardTitle>
           </CardHeader>
           <CardBody>
@@ -77,7 +85,7 @@ class LogIn extends Component {
                 />
               </FormGroup>
               <Button type="submit" color="success" onClick={this.handleSubmit}>
-                Log In
+                Sign Up
               </Button>
             </>
           </CardBody>
@@ -87,4 +95,4 @@ class LogIn extends Component {
   }
 }
 
-export default LogIn;
+export default SignUp;

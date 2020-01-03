@@ -1,0 +1,88 @@
+.adminUsers {
+  .adminUsers__item {
+    .item__wrapper {
+      .wrapper__title {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      /*       .wrapper__body {
+        display: grid;
+        grid-template-columns: 1fr minmax(auto, 700px);
+        grid-template-areas: "form waiting-list";
+        gap: 0 16px;
+        @media only screen and (max-width: 1200px) {
+          grid-template-columns: 1fr;
+          grid-template-rows: auto auto;
+          grid-template-areas:
+            "form"
+            "waiting-list";
+        }
+      }
+ */
+    }
+    &__form {
+      grid-area: form;
+      display: grid !important;
+      gap: 16px 8px;
+      grid-template-columns: 1fr;
+      // grid-auto-flow: dense;
+      grid-template-rows: repeat(auto);
+      align-items: flex-start;
+      grid-auto-flow: row;
+      // &__imgPreview {
+      //   display: flex;
+      //   justify-content: space-around;
+      //   align-items: center;
+      //   @media only screen and (max-width: 1600px) {
+      //     flex-direction: column;
+      //     justify-content: space-around;
+      //     .imgPreview__square {
+      //       margin-top: $margin-2;
+      //     }
+      //     .imgPreview__stretch {
+      //       margin-top: $margin-2;
+      //     }
+      //   }
+      //   @media only screen and (max-width: 380px) {
+      //     .imgPreview__square {
+      //       width: 118px !important;
+      //       height: 118px !important;
+      //     }
+      //     .imgPreview__stretch {
+      //       width: 210px !important;
+      //       height: 118px !important;
+      //     }
+      //   }
+      //   // flex-wrap: wrap;
+      //   .imgPreview__square,
+      //   .imgPreview__stretch {
+      //     text-align: center;
+      //     object-fit: cover;
+      //     object-position: center;
+      //     padding: $padding-05;
+      //     background: $color-primary-dark;
+      //     border: $border-1px solid $color-primary-darker;
+      //     border-radius: $radius-sm;
+      //   }
+      //   .imgPreview__square {
+      //     height: 180px;
+      //     width: 180px;
+      //   }
+      //   .imgPreview__stretch {
+      //     height: 180px;
+      //     width: 320px;
+      //   }
+      // }
+    }
+    @media only screen and (max-width: 480px) {
+      grid-template-columns: 1fr;
+    }
+    /*  &__waitingList {
+      grid-area: waiting-list;
+      table {
+        margin-top: $margin-4;
+      }
+    } */
+  }
+}

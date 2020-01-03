@@ -7,8 +7,7 @@ import {
 } from "../../actions/course/courseActions";
 import {
   validateUrl,
-  validateStringLength,
-  validateId
+  validateStringLength
 } from "../../actions/form/formValidation";
 import _ from "lodash";
 import Icon from "@material-ui/core/Icon";
@@ -42,44 +41,59 @@ class AdminCourseForm extends Component {
       imgUrlError: "",
       idError: "",
       courseNameError: "",
+      altNameError: "",
       categoryIdError: "",
-      userAccountError: "",
+      dateError: "",
+      desError: "",
       isEditing: false
     };
   }
 
   /* --------------- methods --------------- */
-  /*  validateInputLength = event => {
-    let inputLengthError = "";
-    if (event.target.value.length < 3 || event.target.value > 150) {
-      inputLengthError = "error";
-      this.setState({ inputLengthError });
-    }
-    this.setState(inputLengthError);
-  }; */
+
   // validate image url
   validateImgUrl = () => {
     let imgUrl = this.state.hinhAnh;
     let imgUrlError = this.state.imgUrlError;
     let isEditing = this.state.isEditing;
-    // let isAdding = this.props.isAdding
     if (isEditing) {
       imgUrlError = validateUrl(imgUrl);
       this.setState({ imgUrlError });
     }
   };
-  // validate kinds of ids
-  validateId = (id, error) => {
-    let invalidLength = validateStringLength(id);
+  // validate input length
+  validateInputLength = (input, maxLength, inputName) => {
+    let invalidLength = validateStringLength(input, maxLength);
     console.log(invalidLength);
-    let invalidIdFormat = validateId(id);
-    let isEditing = this.props.isEditing;
-    if (isEditing) {
-      if (error === this.state.idError) {
+    switch (inputName) {
+      case "idError":
         this.setState({
-          idError: invalidLength + invalidIdFormat
+          idError: invalidLength
         });
-      }
+        break;
+      case "courseNameError":
+        this.setState({
+          courseNameError: invalidLength
+        });
+        break;
+      case "altNameError":
+        this.setState({
+          altNameError: invalidLength
+        });
+        break;
+      case "dateError":
+        this.setState({
+          dateError: invalidLength
+        });
+        break;
+      case "desError":
+        this.setState({
+          desError: invalidLength
+        });
+        break;
+
+      default:
+        return { ...this.state };
     }
   };
 
@@ -122,18 +136,21 @@ class AdminCourseForm extends Component {
       "idError",
       "courseNameError",
       "categoryIdError",
-      "userAccountError",
+      "altNameError",
+      "desError",
       "isEditing"
     ]);
+    console.log(course);
+
     return course;
   };
 
   submitChange = () => {
     const courseInfo = this.gatherCourseInfo();
     if (this.props.isAdding) {
+      createNewCourse(courseInfo);
       console.log("Running createNewCourse()");
 
-      createNewCourse(courseInfo);
       this.props.setAdding(false);
     } else {
       console.log("Running updateCourse()");
@@ -143,13 +160,16 @@ class AdminCourseForm extends Component {
       isEditing: false
     });
   };
-  handleDeleting = () => {
-    const id = this.state.maKhoaHoc;
-    console.log(id);
-    id === "" ? alert("Pick a course to delete") : deleteCourse(id);
-  };
+  // handleDeleting = () => {
+  //   const id = this.state.maKhoaHoc;
+  //   // console.log(id);
+  //   id === ""
+  //     ? alert("Pick a course to delete")
+  //     : deleteCourse(id).then(this.props.reloadCourseList);
+  // };
   /* --------------------------------------- */
-  static getDerivedStateFromProps(props, state) {
+
+  /* static getDerivedStateFromProps(props, state) {
     if (!_.isEmpty(props.courseDetails) && !props.isAdding) {
       const {
         maKhoaHoc,
@@ -163,6 +183,7 @@ class AdminCourseForm extends Component {
         props.courseDetails.danhMucKhoaHoc.maDanhMucKhoahoc;
       const taiKhoanNguoiTao = props.courseDetails.nguoiTao.taiKhoan;
       return {
+        ...state,
         maKhoaHoc: maKhoaHoc,
         biDanh: biDanh,
         tenKhoaHoc: tenKhoaHoc,
@@ -170,34 +191,33 @@ class AdminCourseForm extends Component {
         hinhAnh: hinhAnh,
         ngayTao: ngayTao,
         maDanhMucKhoaHoc: maDanhMucKhoahoc,
-        taiKhoanNguoiTao: taiKhoanNguoiTao,
-        imgUrlError: ""
+        taiKhoanNguoiTao: taiKhoanNguoiTao
       };
-    } else {
-      return { ...state };
     }
-  }
+    return { ...state };
+  } */
+
   render() {
-    // this.gartherCourseInfo()
+    // this.gatherCourseInfo();
+    // const { isEditing } = this.state;
     const {
       hinhAnh,
       maKhoaHoc,
       moTa,
       ngayTao,
       tenKhoaHoc,
-      isEditing,
-      idError
+      biDanh,
+      isEditing
+      // idError
     } = this.state;
-    const { isAdding } = this.props;
-    // console.log(props.courseDetails);
-    const courseThumbnail = hinhAnh;
-    const courseId = maKhoaHoc;
-    const courseDescription = moTa;
-    const createdDate = ngayTao;
-    const courseName = tenKhoaHoc;
-    const courseCategoryId = this.state.maDanhMucKhoaHoc;
-    const courseCreator = this.state.taiKhoanNguoiTao;
+    const { isAdding, categories, currentAdminAccount } = this.props;
 
+    const maDanhMucKhoaHoc = this.state.maDanhMucKhoaHoc;
+    const taiKhoanNguoiTao = this.state.taiKhoanNguoiTao;
+
+    const categoryOptions = categories.map(item => {
+      return <option>{item.maDanhMuc}</option>;
+    });
     const btnGroupConfirmSave = (
       <>
         <Button color="success" onClick={this.submitChange}>
@@ -229,7 +249,10 @@ class AdminCourseForm extends Component {
           ) : (
             btnGroupConfirmSave
           )}
-          <Button color="danger" onClick={this.handleDeleting}>
+          <Button
+            color="danger"
+            onClick={() => this.props.handleDeletion(this.state.maKhoaHoc)}
+          >
             <Icon>delete</Icon>
           </Button>
         </div>
@@ -244,7 +267,9 @@ class AdminCourseForm extends Component {
               invalid={this.state.imgUrlError === "" ? false : true}
               type="text"
               name="hinhAnh"
-              value={courseThumbnail}
+              value={
+                hinhAnh !== "" ? hinhAnh : this.props.courseDetails.hinhAnh
+              }
               disabled={!isEditing ? true : false}
               onChange={this.handleInputChange}
               onBlur={this.validateImgUrl}
@@ -262,12 +287,12 @@ class AdminCourseForm extends Component {
             </span>
             <img
               alt="course thumbnail"
-              src={courseThumbnail}
+              src={hinhAnh}
               className="imgPreview__square"
             />
             <img
               alt="course thumbnail"
-              src={courseThumbnail}
+              src={hinhAnh}
               className="imgPreview__stretch"
             />
           </div>
@@ -276,10 +301,11 @@ class AdminCourseForm extends Component {
             <Input
               type="text"
               name="maKhoaHoc"
-              value={courseId}
+              value={maKhoaHoc}
               disabled={!isEditing ? true : false}
               onChange={this.handleInputChange}
-              onBlur={this.validateId}
+              onBlur={() => this.validateInputLength(maKhoaHoc, 50, "idError")}
+              invalid={this.state.idError === "" ? false : true}
             />
             <FormFeedback invalid="true">{this.state.idError}</FormFeedback>
           </FormGroup>
@@ -288,29 +314,60 @@ class AdminCourseForm extends Component {
             <Input
               type="text"
               name="tenKhoaHoc"
-              value={courseName}
+              value={tenKhoaHoc}
+              disabled={!isEditing ? true : false}
               onChange={this.handleInputChange}
+              onBlur={() =>
+                this.validateInputLength(tenKhoaHoc, 150, "courseNameError")
+              }
+              invalid={this.state.courseNameError === "" ? false : true}
+            />
+            <FormFeedback invalid="true">
+              {this.state.courseNameError}
+            </FormFeedback>
+          </FormGroup>
+          <FormGroup>
+            <Label>Alt. Name: </Label>
+            <Input
+              type="text"
+              name="biDanh"
+              value={biDanh}
+              onChange={this.handleInputChange}
+              onBlur={() =>
+                this.validateInputLength(biDanh, 150, "altNameError")
+              }
+              invalid={this.state.altNameError === "" ? false : true}
               disabled={!isEditing ? true : false}
             />
+            <FormFeedback invalid="true">
+              {this.state.altNameError}
+            </FormFeedback>
           </FormGroup>
           <FormGroup>
             <Label>Category ID: </Label>
             <Input
-              value={!isAdding ? courseCategoryId : ""}
-              type="text"
+              // value={!isEditing ? maDanhMucKhoaHoc : ""}
+              type="select"
+              name="maDanhMucKhoaHoc"
+              placeholder="Select an ID"
               onChange={this.handleInputChange}
               disabled={!isEditing ? true : false}
-            />
+            >
+              <option value="" disabled selected>
+                {!isEditing ? maDanhMucKhoaHoc : "Select a category code"}
+              </option>
+              {categoryOptions}
+            </Input>
           </FormGroup>
           <FormGroup>
             <Label>Creator ID: </Label>
             <Input
-              value={courseCreator}
+              value={isAdding ? currentAdminAccount : taiKhoanNguoiTao}
               type="text"
               name="taiKhoanNguoiTao"
               //value={this.state.taiKhoanNguoiTao}
               onChange={this.handleInputChange}
-              disabled={!isEditing ? true : false}
+              disabled
             />
           </FormGroup>
           <FormGroup>
@@ -318,21 +375,27 @@ class AdminCourseForm extends Component {
             <Input
               type="text"
               name="ngayTao"
-              value={createdDate}
+              value={ngayTao}
               onChange={this.handleInputChange}
+              onBlur={() => this.validateInputLength(ngayTao, 10, "dateError")}
               disabled={!isEditing ? true : false}
+              invalid={this.state.dateError === "" ? false : true}
             />
+            <FormFeedback invalid="true">{this.state.dateError}</FormFeedback>
           </FormGroup>
           <FormGroup>
             <Label>Description:</Label>
             <Input
               type="textarea"
               name="moTa"
-              value={courseDescription}
+              value={moTa}
               style={{ minHeight: 90 }}
               onChange={this.handleInputChange}
+              onBlur={() => this.validateInputLength(moTa, 1000, "desError")}
+              invalid={this.state.desError === "" ? false : true}
               disabled={!isEditing ? true : false}
             />
+            <FormFeedback invalid="true">{this.state.desError}</FormFeedback>
           </FormGroup>
         </Form>
       </CardBody>

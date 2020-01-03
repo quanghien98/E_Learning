@@ -15,6 +15,7 @@ import SearchList from "./containers/SearchList";
 import CoursesByCategory from "./containers/CoursesByCategory";
 import CourseSyllabus from "./containers/CourseSyllabus";
 import LogIn from "./containers/Auth/LogIn";
+import SignUp from "./containers/Auth/SignUp";
 import Admin from "./layouts/Admin";
 
 export default class MasterRouter extends Component {
@@ -40,6 +41,7 @@ export default class MasterRouter extends Component {
             component={CourseSyllabus}
           />
           <Route exact path="/log-in" component={LogIn} />
+          <Route exact path="/sign-up" component={SignUp} />
           <Route exact path="/admin" component={Admin} />
           <Route path="/404" component={PageNotFound} />
           <Redirect from="" to="/404" />

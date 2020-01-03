@@ -3,8 +3,11 @@ import { connect } from "react-redux";
 import {
   getCourseList,
   selectCourse,
-  requestCourseDetails
+  requestCourseDetails,
+  requestCourseCategories,
+  deleteCourse
 } from "../../../actions/course/courseActions";
+import { getUserAccount } from "../../../actions/user/userActions";
 // import _ from "lodash";
 import TableCard from "../../../components/TableCard";
 import AdminCourseForm from "../../../components/AdminCourseForm";
@@ -14,7 +17,7 @@ class CourseManagement extends Component {
     super(props);
 
     this.state = {
-      // isCourseTable: true,
+      isCourseTable: true,
       // NOTE passing isCourseTable to CardTable
       // component to get correct rendered component,
       // as CardTable is reusable
@@ -23,7 +26,9 @@ class CourseManagement extends Component {
       sortedBy: "name",
       currentItems: [],
       selectedCourseId: "",
-      defaultCourseId: "111",
+      defaultCourseId: "",
+      courseCategories: [],
+      currentAdminAccount: "",
       isAdding: false
       // isEditing: false
     };
@@ -48,6 +53,18 @@ class CourseManagement extends Component {
     this.setState({
       isAdding
     });
+  };
+
+  handleDeletion = id => {
+    if (id === "") {
+      alert("C'mon, choose a bloody course to delete");
+    } else {
+      deleteCourse(
+        id,
+        res => this.setSelectedCourseId(""),
+        () => this.props.getCourseList()
+      );
+    }
   };
 
   setSelectedCourseId = id => {
@@ -82,6 +99,15 @@ class CourseManagement extends Component {
 
   componentDidMount() {
     this.props.getCourseList();
+    requestCourseCategories(res =>
+      this.setState({
+        courseCategories: res
+      })
+    );
+    const currentAdminAccount = getUserAccount();
+    this.setState({
+      currentAdminAccount
+    });
   }
 
   // NOTE: make sure that a default id is passed to get course details
@@ -131,12 +157,16 @@ class CourseManagement extends Component {
               requestCourseDetails={this.props.requestCourseDetails}
               selectCourse={this.selectCourse}
               isAdding={this.state.isAdding}
+              isCourseTable={this.state.isCourseTable}
             />
           </div>
           <div className="adminCourses__item">
             <AdminCourseForm
               setAdding={this.setAdding}
               isAdding={this.state.isAdding}
+              categories = {this.state.courseCategories}
+              currentAdminAccount = {this.state.currentAdminAccount}
+              handleDeletion={this.handleDeletion}
             />
             {waitingListRows.length === 0 ? (
               <>
@@ -181,7 +211,4 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(CourseManagement);
+export default connect(mapStateToProps, mapDispatchToProps)(CourseManagement);

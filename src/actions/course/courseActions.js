@@ -1,10 +1,11 @@
 import * as Types from "../../constants/actionTypes";
 import courseAPI from "../../api/courseAPI";
 import { getUserAccessKey } from "../user/userActions";
+
 export const getCourseList = () => {
   return dispatch => {
     courseAPI
-      .get("/LayDanhSachKhoaHoc?maKhoaHoc=GP09")
+      .get("/LayDanhSachKhoaHoc?maNhom=GP09")
 
       .then(res => {
         dispatch({
@@ -48,35 +49,46 @@ export const selectCourse = selectedCourse => {
 
 export const requestCourseDetails = courseId => {
   return dispatch => {
-    try {
-      courseAPI.get(`/LayThongTinKhoaHoc?maKhoaHoc=${courseId}`).then(res => {
+    courseAPI
+      .get(`/LayThongTinKhoaHoc?maKhoaHoc=${courseId}`)
+      .then(res => {
         dispatch({
           type: Types.GET_COURSE_DETAILS,
           payload: res.data
         });
-      });
-    } catch (err) {
-      console.log(err);
-    }
+      })
+      .catch(err => console.log(err));
   };
 };
 
+export const requestCourseCategories = callback => {
+  courseAPI
+    .get("/LayDanhMucKhoaHoc")
+    .then(res => {
+      // console.log(res.data);
+      callback(res.data);
+    })
+    .catch(err => console.log(err));
+};
+
+
 /* --------- NOTE: CRUD functions -------- */
 
-export const createNewCourse = newCourse => {
+export const createNewCourse = (newCourse, callback) => {
   const accessToken = getUserAccessKey();
-  courseAPI.defaults.headers.common["Authorization"] = "Bearer" + accessToken;
+  courseAPI.defaults.headers.common["Authorization"] = "Bearer " + accessToken;
   courseAPI
     .post("/ThemKhoaHoc", newCourse)
     .then(res => {
       console.log("Your course was successfully created");
-      return res.data;
+      callback(res.data);
     })
     .catch(err => console.log(err));
 };
+
 export const updateCourse = updatedInfo => {
   const accessToken = getUserAccessKey();
-  courseAPI.defaults.headers.common["Authorization"] = "Bearer" + accessToken;
+  courseAPI.defaults.headers.common["Authorization"] = "Bearer " + accessToken;
   courseAPI
     .put("/CapNhatKhoaHoc", updatedInfo)
     .then(res => {
@@ -86,14 +98,14 @@ export const updateCourse = updatedInfo => {
     .catch(err => console.log(err));
 };
 
-export const deleteCourse = courseId => {
+export const deleteCourse = (courseId, callback, callback2) => {
   const accessToken = getUserAccessKey();
-  courseAPI.defaults.headers.common["Authorization"] = "Bearer" + accessToken;
+  courseAPI.defaults.headers.common["Authorization"] = "Bearer " + accessToken;
   courseAPI
-    .put("/XoaKhoaHoc", courseId)
+    .delete(`/XoaKhoaHoc?MaKhoaHoc=${courseId}`)
     .then(res => {
-      console.log("Your course was successfully deleted");
-      return res.data;
+      callback(res);
     })
+    .then(callback2())
     .catch(err => console.log(err));
 };

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import { connect } from "react-redux";
 import { Card, CardTitle, CardBody, Table } from "reactstrap";
 import ListPagination from "../ListPagination";
@@ -6,14 +6,17 @@ import ListPagination from "../ListPagination";
 
 const TableCard = props => {
   const {
+    isCourseTable,
     tableTitle,
+    deleteBtn,
+    getUserAccount,
+    selectedAccount,
     paginate,
     totalItems,
     currentPage,
     itemsPerPage,
     rows,
     headings,
-    // isAdding,
     optionalDes,
     requestCourseDetails,
     selectCourse
@@ -24,19 +27,76 @@ const TableCard = props => {
     requestCourseDetails(course);
   };
 
-  const selectedRowStyle = selectedItemId => {
+  // const selectedRowStyle = selectedItemId => {
+  //   let id = props.courseDetails.maKhoaHoc;
+  //   let isAdding = props.isAdding;
+  //   if (!isAdding && selectedItemId === id) {
+  //     return { background: "#ff857e" };
+  //   } else {
+  //     return undefined;
+  //   }
+  // };
+
+  const selectedRowStyle = selectedItem => {
     let id = props.courseDetails.maKhoaHoc;
+    let account = props.selectedAccount;
     let isAdding = props.isAdding;
-    if (!isAdding && selectedItemId === id) {
+    if ((!isAdding && selectedItem === id) || selectedItem === account) {
       return { background: "#ff857e" };
-    } else {
-      return undefined;
+    }
+  };
+
+  const returnTableBody = () => {
+    let tableRows = [];
+
+    if (rows === undefined) {
+      return <></>;
+    } else if (rows !== undefined) {
+      if (isCourseTable) {
+        tableRows = rows.map(item => {
+          return (
+            <tr
+              style={selectedRowStyle(item.col1)}
+              key={item.col1}
+              onClick={() => setSelectedCourse(item.col1)}
+            >
+              <td>{item.col1}</td>
+              <td>{item.col2}</td>
+              <td>{item.col3}</td>
+              <td>{item.col4}</td>
+              <td>{item.col5}</td>
+              <td>{item.col6}</td>
+              <td>{item.col7}</td>
+            </tr>
+          );
+        });
+      } else {
+        tableRows = rows.map(item => {
+          return (
+            <tr
+              style={selectedRowStyle(item.col1)}
+              key={item.col1}
+              onClick={() => getUserAccount(item.col1)}
+            >
+              <td>{item.col1}</td>
+              <td>{item.col2}</td>
+              <td>{item.col3}</td>
+              <td>{item.col4}</td>
+              <td>{item.col5}</td>
+            </tr>
+          );
+        });
+      }
+      return tableRows;
     }
   };
 
   return (
     <Card className="list__wrapper">
-      <CardTitle className="wrapper__title">{tableTitle}</CardTitle>
+      <CardTitle className="wrapper__title">
+        {tableTitle}
+        {selectedAccount ? deleteBtn : <></>}
+      </CardTitle>
       <CardBody className="wrapper__body">
         {optionalDes ? <h5>{optionalDes}</h5> : undefined}
 
@@ -52,29 +112,7 @@ const TableCard = props => {
               )}
             </tr>
           </thead>
-          <tbody>
-            {rows === undefined ? (
-              <></>
-            ) : (
-              rows.map(item => {
-                return (
-                  <tr
-                    style={selectedRowStyle(item.col1)}
-                    key={item.col1}
-                    onClick={() => setSelectedCourse(item.col1)}
-                  >
-                    <td>{item.col1}</td>
-                    <td>{item.col2}</td>
-                    <td>{item.col3}</td>
-                    <td>{item.col4}</td>
-                    <td>{item.col5}</td>
-                    <td>{item.col6}</td>
-                    <td>{item.col7}</td>
-                  </tr>
-                );
-              })
-            )}
-          </tbody>
+          <tbody>{returnTableBody()}</tbody>
         </Table>
       </CardBody>
       {paginate === undefined ? (

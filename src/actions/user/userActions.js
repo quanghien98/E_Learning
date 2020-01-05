@@ -1,4 +1,4 @@
-// import * as Types from "../../constants/actionTypes";
+import * as Types from "../../constants/actionTypes";
 import userAPI from "../../api/userAPI";
 
 export const getUserAccount = () => {
@@ -11,15 +11,33 @@ export const getUserAccessKey = () => {
   return user.accessToken;
 };
 
-export const signIn = (userData, callback) => {
-  userAPI
-    .post("/DangNhap", userData)
-    .then(res => {
-      // save data in localStorage
-      localStorage.setItem("currentUser", JSON.stringify(res.data));
-      callback(res.data);
-    })
-    .catch(err => console.log(err));
+export const setUserLoginStat = stat => {
+  return dispatch => {
+    dispatch({
+      type: Types.GET_USER_LOGIN_STAT,
+      payload: stat
+    });
+  };
+};
+
+export const logIn = async (userData, callback) => {
+  try {
+    let res = await userAPI.post("/DangNhap", userData);
+    // save data in localStorage
+    localStorage.setItem("currentUser", JSON.stringify(res.data));
+    callback(res.data);
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+export const signUp = async (userData, callback) => {
+  try {
+    let res = await userAPI.post("/DangKy", userData);
+    callback(res.data);
+  } catch (err) {
+    callback(err.response.data);
+  }
 };
 
 export const getPaginatedUserList = async (page, pageSize) => {

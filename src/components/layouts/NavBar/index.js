@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
+import ProfileNav from "../../ProfileNav";
 
 import siteLogo from "../../../images/logo_transparent.png";
 import {
@@ -8,7 +9,7 @@ import {
   Navbar,
   NavbarToggler,
   Nav,
-  NavItem,
+  // NavItem,
   Container
 } from "reactstrap";
 
@@ -23,9 +24,16 @@ class NavBar extends Component {
     this.state = {
       isOpen: false,
       searchBarSize: "xs",
-      searchPlaceholder: "What are you curious about?"
+      searchPlaceholder: "What are you curious about?",
+      loggedIn: false
     };
   }
+
+  setLoginStat = stat => {
+    this.setState({
+      loggedIn: stat
+    });
+  };
 
   toggleNavbar = () => {
     this.setState({
@@ -81,16 +89,10 @@ class NavBar extends Component {
               />
             </Nav>
             <Nav className="ml-auto" navbar>
-              <NavItem>
-                <NavLink className="nav-link" to="/course/">
-                  A course
-                </NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink className="nav-link" to="/category">
-                  Category
-                </NavLink>
-              </NavItem>
+              <ProfileNav
+                setLoginStat={this.setLoginStat}
+                isLoggedIn={this.state.loggedIn}
+              />
             </Nav>
           </Collapse>
         </Container>
@@ -110,9 +112,4 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default withRouter(
-  connect(
-    mapStatetoProps,
-    mapDispatchToProps
-  )(NavBar)
-);
+export default withRouter(connect(mapStatetoProps, mapDispatchToProps)(NavBar));

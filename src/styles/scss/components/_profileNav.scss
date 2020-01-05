@@ -1,0 +1,32 @@
+.fade {
+  transition: none !important;
+}
+.popover.show {
+  top: 5px !important;
+  box-shadow: $shadow-1;
+  padding: $padding-1 $padding-0;
+  min-width: 200px;
+  text-align: center;
+}
+.profileNav {
+  display: flex;
+  align-items: center;
+  &__icon {
+    padding-top: 5px;
+    cursor: pointer;
+    color: $color-text-grey !important;
+    &:hover {
+      color: $color-text-black !important;
+    }
+  }
+  &__popover {
+    text-align: center;
+    min-width: 200px;
+  }
+  &__popoverBody {
+    &:hover {
+      background-color: $color-primary-darker;
+      cursor: pointer;
+    }
+  }
+}

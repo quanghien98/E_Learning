@@ -8,6 +8,7 @@ export const GET_COURSES_BY_CATEGORY = "GET_COURSES_BY_CATEGORY";
 /* --------- users' action types --------- */
 export const GET_USERS = "GET_USERS";
 export const GET_USER_DETAILS = "GET_USER_PROFILE";
+export const GET_USER_LOGIN_STAT = "GET_USER_LOGIN_STAT";
 
 /* ---------------- others --------------- */
 export const REAL_TIME_SLIDE_SHOW = "REAL_TIME_SLIDE_SHOW";

@@ -1,7 +1,7 @@
 .fade {
   transition: none !important;
 }
-.popover.show {
+.popover.show.bs-popover-bottom {
   top: 5px !important;
   box-shadow: $shadow-1;
   padding: $padding-1 $padding-0;
@@ -23,10 +23,40 @@
     text-align: center;
     min-width: 200px;
   }
+  &__popoverHeader {
+    display: flex;
+    align-items: center;
+    &__icon {
+      font-size: $font-size-2xl !important;
+      margin-right: $margin-05;
+    }
+    &__userName {
+      font-weight: $font-weight-bold;
+      white-space: normal;
+    }
+  }
   &__popoverBody {
     &:hover {
       background-color: $color-primary-darker;
       cursor: pointer;
+    }
+  }
+  &__btn__logIn,
+  &__btn__signUp {
+    border-radius: $radius-0;
+    font-weight: $font-weight-bold;
+    margin-right: $margin-05;
+  }
+  &__btn__logIn {
+    border: $border-1px solid $color-text-black !important;
+  }
+  &__btn__signUp {
+    background-color: $color-secondary !important;
+    border: $border-1px solid $color-secondary !important;
+    color: $color-text-white !important;
+    &:hover {
+      background-color: $color-secondary-dark !important;
+      border: $border-1px solid $color-secondary-dark !important;
     }
   }
 }

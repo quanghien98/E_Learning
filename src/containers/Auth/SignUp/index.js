@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import { withRouter, Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { signUp } from "../../../actions/user/userActions";
@@ -19,12 +19,8 @@ import {
   Button
 } from "reactstrap";
 import FormAlert from "../../../components/FormAlert";
+import Loading from "../../../components/Loading";
 
-/* const cardStyle = {
-  width: 480,
-  margin: "auto",
-  marginTop: 48
-}; */
 const fieldStyle = {
   display: "block",
   width: "100%"
@@ -41,7 +37,8 @@ class SignUp extends Component {
       soDT: "",
       maNhom: "GP09",
       email: "",
-      alert: ""
+      alert: "",
+      isLoading: false
     };
   }
 
@@ -57,21 +54,47 @@ class SignUp extends Component {
   };
 
   handleSubmit = () => {
-    let userData = _.omit(this.state, ["alert"]);
-    // console.log(userData);
+    let userData = _.omit(this.state, ["alert", "isLoading"]);
 
     signUp(userData, res => {
-      this.setState({
-        alert: res
-      });
-      console.log(`Response: ${this.state.alert}`);
-      setTimeout(() => {
+      if (!_.isObject(res)) {
         this.setState({
-          alert: ""
+          alert: res
         });
-      }, 2500);
+        this.props.setUserLoginStat(false);
+        setTimeout(() => {
+          this.setState({
+            alert: ""
+          });
+        }, 2500);
+        // console.log(`Response: ${this.state.alert}`);
+      } else {
+        let path = "/log-in";
+        let loadingDelay = 1000;
+        this.setLoading(loadingDelay, path);
+      }
     });
   };
+  setLoading = (time, path) => {
+    let isLoading = !this.state.isLoading;
+    this.setState({
+      isLoading
+    });
+    setTimeout(() => {
+      this.setState({
+        isLoading
+      });
+      this.props.history.push(path);
+    }, time);
+  };
+  handleDelayedDirectToLogIn = e => {
+    e.preventDefault();
+    let delay = 700;
+    let path = "/log-in";
+    this.setLoading(delay, path);
+  };
+
+  /* --------------------------------------- */
   componentDidMount() {
     if (this.props.isLoggedIn) {
       this.props.history.push("/");
@@ -81,6 +104,8 @@ class SignUp extends Component {
   render() {
     return (
       <Container>
+        {this.state.isLoading ? <Loading /> : <Fragment />}
+
         <Background />
         {this.state.alert === "" ? <></> : this.alert(this.state.alert)}
         <Card className="signUp">
@@ -152,7 +177,9 @@ class SignUp extends Component {
             <p>
               Already got an account?{" "}
               <span>
-                <Link to="/log-in">Login</Link>
+                <Link to="/log-in" onClick={this.handleDelayedDirectToLogIn}>
+                  Login
+                </Link>
               </span>{" "}
             </p>
           </CardBody>

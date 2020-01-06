@@ -16,6 +16,7 @@ import {
 import { NavLink } from "react-router-dom";
 import SearchBox from "../../SearchBox";
 import { getSearchField } from "../../../actions/course/courseActions";
+import { getUserFullName } from "../../../actions/user/userActions";
 
 class NavBar extends Component {
   constructor(props) {
@@ -24,8 +25,8 @@ class NavBar extends Component {
     this.state = {
       isOpen: false,
       searchBarSize: "xs",
-      searchPlaceholder: "What are you curious about?",
-      loggedIn: false
+      searchPlaceholder: "What are you curious about?"
+      // loggedIn: false,
     };
   }
 
@@ -54,6 +55,15 @@ class NavBar extends Component {
       ? window.location.reload()
       : this.props.history.push(queryPath);
   };
+
+  componentDidMount() {
+    if (this.props.isLoggedIn) {
+      let userData = localStorage.getItem("currentUser");
+      if (userData !== null) {
+        this.props.getUserFullName();
+      }
+    }
+  }
 
   render() {
     const { handleSearchChange } = this.props;
@@ -91,7 +101,8 @@ class NavBar extends Component {
             <Nav className="ml-auto" navbar>
               <ProfileNav
                 setLoginStat={this.setLoginStat}
-                isLoggedIn={this.state.loggedIn}
+                // isLoggedIn={this.state.loggedIn}
+                userFullName={this.state.userFullName}
               />
             </Nav>
           </Collapse>
@@ -103,12 +114,14 @@ class NavBar extends Component {
 
 const mapStatetoProps = state => {
   return {
-    searchField: state.searchField
+    searchField: state.searchField,
+    isLoggedIn: state.userLoginStat
   };
 };
 const mapDispatchToProps = dispatch => {
   return {
-    handleSearchChange: e => dispatch(getSearchField(e.target.value))
+    handleSearchChange: e => dispatch(getSearchField(e.target.value)),
+    getUserFullName: () => dispatch(getUserFullName())
   };
 };
 

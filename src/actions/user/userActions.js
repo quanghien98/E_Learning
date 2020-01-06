@@ -20,14 +20,36 @@ export const setUserLoginStat = stat => {
   };
 };
 
+export const getUserFullName = () => {
+  let userData = JSON.parse(localStorage.getItem("currentUser"));
+  if (userData !== null) {
+    let fullName = userData.hoTen;
+    return dispatch => {
+      dispatch({
+        type: Types.GET_USER_FULL_NAME,
+        payload: fullName
+      });
+    };
+  }
+};
+
+export const setCurrentUser = data => {
+  localStorage.setItem("currentUser", JSON.stringify(data));
+};
+
 export const logIn = async (userData, callback) => {
   try {
     let res = await userAPI.post("/DangNhap", userData);
     // save data in localStorage
-    localStorage.setItem("currentUser", JSON.stringify(res.data));
+    // localStorage.setItem("currentUser", JSON.stringify(res.data));
+    setCurrentUser(res.data);
     callback(res.data);
   } catch (err) {
-    console.log(err);
+    if (err.response === undefined) {
+      return null;
+    } else {
+      callback(err.response.data);
+    }
   }
 };
 
@@ -36,7 +58,11 @@ export const signUp = async (userData, callback) => {
     let res = await userAPI.post("/DangKy", userData);
     callback(res.data);
   } catch (err) {
-    callback(err.response.data);
+    if (err.response === undefined) {
+      return null;
+    } else {
+      callback(err.response.data);
+    }
   }
 };
 

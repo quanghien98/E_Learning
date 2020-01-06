@@ -1,10 +1,14 @@
-import React, { Component } from "react";
-import { logIn, setUserLoginStat } from "../../../actions/user/userActions";
+import React, { Component, Fragment } from "react";
+import {
+  logIn,
+  setUserLoginStat,
+  getUserFullName
+} from "../../../actions/user/userActions";
 import { connect } from "react-redux";
 
 import FormAlert from "../../../components/FormAlert";
 import _ from "lodash";
-import { withRouter, Link, Redirect } from "react-router-dom";
+import { withRouter, Link } from "react-router-dom";
 // import { withFormik, Form, Field } from "formik";
 // import Yup from "yup";
 
@@ -22,6 +26,7 @@ import {
   Button
 } from "reactstrap";
 import Background from "../../../components/layouts/Background";
+import Loading from "../../../components/Loading";
 
 const fieldStyle = {
   display: "block",
@@ -35,7 +40,8 @@ class LogIn extends Component {
     this.state = {
       taiKhoan: "",
       matKhau: "",
-      alert: ""
+      alert: "",
+      isLoading: false
     };
   }
 
@@ -46,42 +52,63 @@ class LogIn extends Component {
     });
   };
   handleSubmit = () => {
-    let userData = _.omit(this.state, ["alert"]);
-    logIn(
-      userData,
-      res => {
-        if (!_.isObject(res)) {
+    let userData = _.omit(this.state, ["alert", "isLoading"]);
+    logIn(userData, res => {
+      if (!_.isObject(res)) {
+        this.setState({
+          alert: res
+        });
+        this.props.setUserLoginStat(false);
+        setTimeout(() => {
           this.setState({
-            alert: res
+            alert: ""
           });
-          this.props.setUserLoginStat(false);
-        } else {
-          this.props.setUserLoginStat(true);
-          this.props.history.push("/");
-        }
-        // if(this.state.alert)
-      },
-      err => {
-        "";
+        }, 2500);
+        // console.log(`Response: ${this.state.alert}`);
+      } else {
+        let path = "/";
+        let loadingDelay = 1000;
+        this.props.setUserLoginStat(true);
+        this.props.getUserFullName();
+        this.setLoading(loadingDelay, path);
       }
-    );
-    /* setTimeout(() => {
-      this.setState({
-        alert: ""
-      });
-    }, 2500); */
+    });
   };
 
+  alert = () => {
+    return <FormAlert msg={this.state.alert} />;
+  };
+  setLoading = (time, path) => {
+    let isLoading = !this.state.isLoading;
+    this.setState({
+      isLoading
+    });
+    setTimeout(() => {
+      this.setState({
+        isLoading
+      });
+      this.props.history.push(path);
+    }, time);
+  };
+  handleDelayedDirectToSignUp = e => {
+    e.preventDefault();
+    let delay = 700;
+    let path = "/sign-up";
+    this.setLoading(delay, path);
+  };
+  /* --------------------------------------- */
   componentDidMount() {
     if (this.props.isLoggedIn) {
       this.props.history.push("/");
     }
   }
+
   render() {
     return (
       <Container>
+        {this.state.isLoading ? <Loading /> : <Fragment />}
         <Background />
-        <FormAlert msg={this.state.alert} />
+        {this.state.alert === "" ? <></> : this.alert(this.state.alert)}
         <Card className="logIn">
           <CardHeader>
             <CardTitle>
@@ -115,13 +142,15 @@ class LogIn extends Component {
                 className="logIn__form__btn"
                 onClick={this.handleSubmit}
               >
-                LOGIN
+                LOG IN
               </Button>
             </>
             <p>
               Haven't got an account?{" "}
               <span>
-                <Link to="/sign-up">Sign Up</Link>
+                <Link to="/sign-up" onClick={this.handleDelayedDirectToSignUp}>
+                  Sign Up
+                </Link>
               </span>{" "}
             </p>
           </CardBody>
@@ -133,11 +162,12 @@ class LogIn extends Component {
 const mapStateToProps = state => {
   return {
     isLoggedIn: state.userLoginStat
-  }
+  };
 };
 const mapDispatchToProps = dispatch => {
   return {
-    setUserLoginStat: stat => dispatch(setUserLoginStat(stat))
+    setUserLoginStat: stat => dispatch(setUserLoginStat(stat)),
+    getUserFullName: () => dispatch(getUserFullName())
   };
 };
 

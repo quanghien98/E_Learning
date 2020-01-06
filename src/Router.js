@@ -19,6 +19,20 @@ import SignUp from "./containers/Auth/SignUp";
 import Admin from "./layouts/Admin";
 
 export default class MasterRouter extends Component {
+  handleAuth = () => {
+    let userData = JSON.parse(localStorage.getItem("currentUser"));
+    if (userData === null) {
+      return <Redirect from="" to="/" />;
+    } else if (userData !== null) {
+      let accountType = userData.maLoaiNguoiDung;
+      if (accountType === "GV") {
+        return <Route exact path="/admin" component={Admin} />;
+      } else {
+        return <Redirect from="" to="/" />;
+      }
+    }
+  };
+
   render() {
     return (
       <Router>
@@ -42,7 +56,8 @@ export default class MasterRouter extends Component {
           />
           <Route exact path="/log-in" component={LogIn} />
           <Route exact path="/sign-up" component={SignUp} />
-          <Route exact path="/admin" component={Admin} />
+          {/* <Route exact path="/admin" component={Admin} /> */}
+          {this.handleAuth()}
           <Route path="/404" component={PageNotFound} />
           <Redirect from="" to="/404" />
 

@@ -1,7 +1,12 @@
 import React, { Component } from "react";
-import _ from "lodash";
-import { withRouter, Link, Redirect } from "react-router-dom";
-import { NavItem, UncontrolledPopover, PopoverBody } from "reactstrap";
+import { withRouter } from "react-router-dom";
+import {
+  NavItem,
+  UncontrolledPopover,
+  PopoverBody,
+  Button,
+  PopoverHeader
+} from "reactstrap";
 import Icon from "@material-ui/core/Icon";
 import { connect } from "react-redux";
 import { setUserLoginStat } from "../../actions/user/userActions";
@@ -10,7 +15,7 @@ export class ProfileNav extends Component {
     super(props);
 
     this.state = {
-      loggedIn: false
+      userFullName: ""
     };
   }
 
@@ -28,26 +33,31 @@ export class ProfileNav extends Component {
 
   logOut = () => {
     localStorage.clear();
-    // this.setState({
-    //   loggedIn: false
-    // });
     this.props.setLoginStat(false);
   };
 
- 
+  navigateToLogIn = () => {
+    this.props.history.push("/log-in");
+  };
+
+  navigateToSignUp = () => {
+    this.props.history.push("/sign-up");
+  };
 
   componentDidMount() {
     this.handleLogInStat();
-    this.redirect();
+
+    // this.redirect();
   }
-  /*  static getDerivedStateFromProps(props, state) {
-    if (props.isLoggedIn !== state.loggedIn) {
+  static getDerivedStateFromProps(props, state) {
+    if (props.userFullName !== state.userFullName) {
       return {
-        loggedIn: props.isLoggedIn
+        userFullName: props.userFullName
       };
+    } else {
+      return { ...state };
     }
-    return null;
-  } */
+  }
 
   render() {
     if (this.props.isLoggedIn) {
@@ -60,6 +70,15 @@ export class ProfileNav extends Component {
             placement="bottom"
             target="PopoverLegacy"
           >
+            <PopoverHeader className="profileNav__popoverHeader">
+              <Icon className="profileNav__popoverHeader__icon">
+                account_circle
+              </Icon>
+              <span>Logged in as &#160;</span>
+              <span className="profileNav__popoverHeader__userName">
+                {this.props.userFullName}
+              </span>
+            </PopoverHeader>
             <PopoverBody className="profileNav__popoverBody">
               Profile
             </PopoverBody>
@@ -76,14 +95,20 @@ export class ProfileNav extends Component {
     return (
       <div className="profileNav">
         <NavItem>
-          <Link className="nav-link" to="/log-in/">
-            Login
-          </Link>
+          <Button
+            className="nav-link profileNav__btn__logIn"
+            onClick={this.navigateToLogIn}
+          >
+            Log In
+          </Button>
         </NavItem>
         <NavItem>
-          <Link className="nav-link" to="/sign-up">
+          <Button
+            className="nav-link profileNav__btn__signUp"
+            onClick={this.navigateToSignUp}
+          >
             Sign Up
-          </Link>
+          </Button>
         </NavItem>
       </div>
     );
@@ -91,7 +116,8 @@ export class ProfileNav extends Component {
 }
 const mapStateToProps = state => {
   return {
-    isLoggedIn: state.userLoginStat
+    isLoggedIn: state.userLoginStat,
+    userFullName: state.userFullName
   };
 };
 const mapDispatchToProps = dispatch => {

@@ -36,6 +36,10 @@ const callAlert = message => {
         "Email address has been used! Please use another email address";
       stat = setAlertStat("error");
       return setAlertBody(alertMsg, stat);
+    case "Tài khoản hoặc mật khẩu không đúng!":
+      alertMsg = "Incorrect account or password!";
+      stat = setAlertStat("error");
+      return setAlertBody(alertMsg, stat);
     case "Tài khoản đã tồn tại!":
       alertMsg = "This account has been used! Please pick a different account.";
       stat = setAlertStat("error");
@@ -50,7 +54,5 @@ const callAlert = message => {
 const FormAlert = ({ msg }) => {
   return <>{callAlert(msg)}</>;
 };
-
-
 
 export default FormAlert;

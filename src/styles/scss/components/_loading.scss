@@ -1,0 +1,16 @@
+//overidding bootstrap
+.spinner-grow.text-light,
+.spinner-border.text-light {
+  width: $font-size-3xl;
+  height: $font-size-3xl;
+}
+
+.loading {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: auto;
+  z-index: 10;
+  color: red;
+}

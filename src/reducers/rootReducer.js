@@ -8,6 +8,7 @@ import { searchReducer } from "./searchReducers/searchFieldReducer";
 import { courseDetailsReducer } from "./courseReducers/courseDetailsReducer";
 import { userListReducer } from "./userReducers/userListReducer";
 import { userLoginStatReducer } from "./userReducers/userLoginStatReducer";
+import { userFullNameReducer } from "./userReducers/userFullNameReducer";
 // NOTE: import all defined reducers here,
 // then provide them to store via combineReducers
 // method
@@ -20,7 +21,8 @@ const rootReducer = combineReducers({
   selectedCourse: selectedCourseReducer,
   courseDetails: courseDetailsReducer,
   users: userListReducer,
-  userLoginStat: userLoginStatReducer
+  userLoginStat: userLoginStatReducer,
+  userFullName: userFullNameReducer
 });
 
 export default rootReducer;

@@ -64,7 +64,7 @@ class AdminCourseForm extends Component {
   // validate input length
   validateInputLength = (input, maxLength, inputName) => {
     let invalidLength = validateStringLength(input, maxLength);
-    console.log(invalidLength);
+    // console.log(invalidLength);
     switch (inputName) {
       case "idError":
         this.setState({

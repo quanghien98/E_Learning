@@ -19,7 +19,8 @@ const setAlertBody = (alertMsg, statColor) => {
         top: 60,
         left: "50%",
         transform: "translateX(-50%)",
-        marginTop: 30
+        marginTop: 30,
+        zIndex: 10
       }}
       color={statColor}
     >
@@ -43,6 +44,10 @@ const callAlert = message => {
     case "Tài khoản đã tồn tại!":
       alertMsg = "This account has been used! Please pick a different account.";
       stat = setAlertStat("error");
+      return setAlertBody(alertMsg, stat);
+    case "Logged out":
+      alertMsg = "You have successfully logged out.";
+      stat = setAlertStat("success");
       return setAlertBody(alertMsg, stat);
     default:
       alertMsg = "Something went wrong!";

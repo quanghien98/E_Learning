@@ -1,17 +1,15 @@
 import React, { Component, Fragment } from "react";
+import { connect } from "react-redux";
+import { withRouter, Link } from "react-router-dom";
+import _ from "lodash";
 import {
   logIn,
   setUserLoginStat,
   getUserFullName
 } from "../../../actions/user/userActions";
-import { connect } from "react-redux";
-
+import Background from "../../../components/layouts/Background";
+import Loading from "../../../components/Loading";
 import FormAlert from "../../../components/FormAlert";
-import _ from "lodash";
-import { withRouter, Link } from "react-router-dom";
-// import { withFormik, Form, Field } from "formik";
-// import Yup from "yup";
-
 import {
   Container,
   Card,
@@ -25,8 +23,6 @@ import {
   // Input,
   Button
 } from "reactstrap";
-import Background from "../../../components/layouts/Background";
-import Loading from "../../../components/Loading";
 
 const fieldStyle = {
   display: "block",
@@ -53,6 +49,7 @@ class LogIn extends Component {
   };
   handleSubmit = () => {
     let userData = _.omit(this.state, ["alert", "isLoading"]);
+    let alertDelay = 2000;
     logIn(userData, res => {
       if (!_.isObject(res)) {
         this.setState({
@@ -63,14 +60,14 @@ class LogIn extends Component {
           this.setState({
             alert: ""
           });
-        }, 2500);
+        }, alertDelay);
         // console.log(`Response: ${this.state.alert}`);
       } else {
         let path = "/";
         let loadingDelay = 1000;
         this.props.setUserLoginStat(true);
         this.props.getUserFullName();
-        this.setLoading(loadingDelay, path);
+        this.setLoading(loadingDelay);
       }
     });
   };
@@ -79,6 +76,8 @@ class LogIn extends Component {
     return <FormAlert msg={this.state.alert} />;
   };
   setLoading = (time, path) => {
+    console.log(path);
+
     let isLoading = !this.state.isLoading;
     this.setState({
       isLoading
@@ -87,7 +86,10 @@ class LogIn extends Component {
       this.setState({
         isLoading
       });
-      this.props.history.push(path);
+      if (path !== undefined) {
+        this.props.history.push(path);
+      }
+      this.props.history.goBack();
     }, time);
   };
   handleDelayedDirectToSignUp = e => {

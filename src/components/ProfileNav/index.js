@@ -1,5 +1,7 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
+import { setUserLoginStat } from "../../actions/user/userActions";
 import {
   NavItem,
   UncontrolledPopover,
@@ -8,8 +10,6 @@ import {
   PopoverHeader
 } from "reactstrap";
 import Icon from "@material-ui/core/Icon";
-import { connect } from "react-redux";
-import { setUserLoginStat } from "../../actions/user/userActions";
 export class ProfileNav extends Component {
   constructor(props) {
     super(props);
@@ -24,6 +24,8 @@ export class ProfileNav extends Component {
     let loggedIn;
     if (userData !== null && this.props.isLoggedIn === true) {
       loggedIn = true;
+      // let stat = "Logged In";
+      // this.props.setLogStat(stat);
     } else {
       loggedIn = false;
     }
@@ -32,8 +34,10 @@ export class ProfileNav extends Component {
   };
 
   logOut = () => {
+    let stat = "Logged out";
     localStorage.clear();
     this.props.setLoginStat(false);
+    this.props.setLogStat(stat);
   };
 
   navigateToLogIn = () => {
@@ -46,8 +50,6 @@ export class ProfileNav extends Component {
 
   componentDidMount() {
     this.handleLogInStat();
-
-    // this.redirect();
   }
   static getDerivedStateFromProps(props, state) {
     if (props.userFullName !== state.userFullName) {

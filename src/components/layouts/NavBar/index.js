@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import ProfileNav from "../../ProfileNav";
@@ -17,6 +17,7 @@ import { NavLink } from "react-router-dom";
 import SearchBox from "../../SearchBox";
 import { getSearchField } from "../../../actions/course/courseActions";
 import { getUserFullName } from "../../../actions/user/userActions";
+import FormAlert from "../../FormAlert";
 
 class NavBar extends Component {
   constructor(props) {
@@ -25,17 +26,27 @@ class NavBar extends Component {
     this.state = {
       isOpen: false,
       searchBarSize: "xs",
-      searchPlaceholder: "What are you curious about?"
-      // loggedIn: false,
+      searchPlaceholder: "What are you curious about?",
+      logStat: ""
     };
   }
 
-  setLoginStat = stat => {
+  setLogStat = stat => {
     this.setState({
-      loggedIn: stat
+      logStat: stat
     });
+    setTimeout(() => {
+      this.setState({
+        logStat: ""
+      });
+    }, 2500);
   };
-
+  handleLoggedOutAlert = () => {
+    if (this.state.logStat !== "") {
+      return <FormAlert msg={this.state.logStat} />;
+    }
+    return <Fragment />;
+  };
   toggleNavbar = () => {
     this.setState({
       isOpen: !this.state.isOpen
@@ -62,7 +73,7 @@ class NavBar extends Component {
       if (userData !== null) {
         this.props.getUserFullName();
       }
-    }
+    } 
   }
 
   render() {
@@ -72,42 +83,49 @@ class NavBar extends Component {
       return null;
     }
     return (
-      <Navbar light expand="md" className="draftNavBar">
-        <Container fluid>
-          <NavLink to="/" className="navbar-brand">
-            <img
-              alt="Codemy"
-              src={siteLogo}
-              style={{
-                width: "auto",
-                height: 50,
-                objectFit: "cover",
-                objectPosition: "center",
-                paddingRight: 16
-              }}
-            />
-          </NavLink>
-          <NavbarToggler onClick={this.toggleNavbar} />
-          <Collapse isOpen={this.state.isOpen} navbar>
-            <Nav className="draftNavBar__searchBar">
-              <SearchBox
-                size={this.state.searchBarSize}
-                placeholder={this.state.searchPlaceholder}
-                handleChange={handleSearchChange}
-                handleKeyDown={this.handleSearchOnKeyDown}
-                handleSubmitButton={this.handleSearchOnSubmit}
+      <div>
+        <Navbar light expand="md" className="draftNavBar">
+          <Container fluid>
+            <NavLink to="/" className="navbar-brand">
+              <img
+                alt="Codemy"
+                src={siteLogo}
+                style={{
+                  width: "auto",
+                  height: 50,
+                  objectFit: "cover",
+                  objectPosition: "center",
+                  paddingRight: 16
+                }}
               />
-            </Nav>
-            <Nav className="ml-auto" navbar>
-              <ProfileNav
-                setLoginStat={this.setLoginStat}
-                // isLoggedIn={this.state.loggedIn}
-                userFullName={this.state.userFullName}
-              />
-            </Nav>
-          </Collapse>
-        </Container>
-      </Navbar>
+            </NavLink>
+            <NavbarToggler onClick={this.toggleNavbar} />
+            <Collapse isOpen={this.state.isOpen} navbar>
+              <Nav className="draftNavBar__searchBar">
+                <SearchBox
+                  size={this.state.searchBarSize}
+                  placeholder={this.state.searchPlaceholder}
+                  handleChange={handleSearchChange}
+                  handleKeyDown={this.handleSearchOnKeyDown}
+                  handleSubmitButton={this.handleSearchOnSubmit}
+                />
+              </Nav>
+              <Nav className="ml-auto" navbar>
+                <ProfileNav
+                  setLogStat={this.setLogStat}
+                  // isLoggedIn={this.state.loggedIn}
+                  userFullName={this.state.userFullName}
+                />
+              </Nav>
+            </Collapse>
+          </Container>
+        </Navbar>
+        {this.state.logStat === "" ? (
+          <Fragment />
+        ) : (
+          <FormAlert msg={this.state.logStat} />
+        )}
+      </div>
     );
   }
 }

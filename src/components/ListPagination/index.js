@@ -39,7 +39,7 @@ class ListPagination extends Component {
         <Pagination className="listPagination">
           <PaginationItem>
             <PaginationLink
-              href={this.props.href}
+              // href={this.props.href}
               id="pagination-prev"
               className={
                 this.props.currentPage === 1

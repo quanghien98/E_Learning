@@ -21,6 +21,7 @@ class CoursesByCategory extends Component {
     super(props);
 
     this.state = {
+      offsetTop: 0,
       correctPath: true,
       currentPage: 1,
       itemsPerPage: 10,
@@ -84,7 +85,7 @@ class CoursesByCategory extends Component {
       };
     }
   }
-  handleScroll = () => window.scrollTo(100, this.myRef.offsetTop);
+  handleScroll = () => window.scrollTo(120, this.offsetTop);
   /* ------------ end pagination ----------- */
 
   componentDidMount() {
@@ -115,7 +116,7 @@ class CoursesByCategory extends Component {
             dropdowns={dropdowns}
             className="coursesByCategory__sortWrapper"
           />
-          {categorizedCourses.map(course => (
+          {this.state.currentItems.map(course => (
             <ItemCardStretch
               key={course.maKhoaHoc}
               courseTitle={course.tenKhoaHoc}
@@ -150,8 +151,5 @@ const mapDispatchToProps = dispatch => {
   };
 };
 export default withRouter(
-  connect(
-    mapStateToProps,
-    mapDispatchToProps
-  )(CoursesByCategory)
+  connect(mapStateToProps, mapDispatchToProps)(CoursesByCategory)
 );

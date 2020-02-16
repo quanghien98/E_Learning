@@ -17,10 +17,10 @@ class CourseList extends Component {
   }
 
   updateViewPortWidth = () => {
-    const viewPortWidth = window.innerWidth;
-    console.log(viewPortWidth);
+    // const viewPortWidth = window.innerWidth;
+    // console.log(viewPortWidth);
     this.setState({
-      viewPortWidth
+      viewPortWidth: window.innerWidth
     });
   };
 
@@ -46,10 +46,19 @@ class CourseList extends Component {
   };
   componentDidMount() {
     this.props.getCourseList();
-    window.addEventListener("resize", this.updateViewPortWidth);
+    // setup/update viewport width for
+    // better scrolling experence
+    if (this.state.viewPortWidth === 0) {
+      this.updateViewPortWidth();
+    } else {
+      window.addEventListener("resize", this.updateViewPortWidth);
+    }
+    console.log(window.innerWidth);
+    console.log(this.state.viewPortWidth);
   }
 
   componentWillUnmount() {
+    this.updateViewPortWidth();
     window.removeEventListener("resize", this.updateViewPortWidth);
   }
 
@@ -94,7 +103,7 @@ class CourseList extends Component {
         </div>
         <div className="courseListSlideshow" ref={this.sliderRef}>
           {courseCard}
-         
+
           {/* <div className="courseListSlideshow__slide">2</div>
           <div className="courseListSlideshow__slide">3</div>
           <div className="courseListSlideshow__slide">4</div>
